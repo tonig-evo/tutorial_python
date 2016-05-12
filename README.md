@@ -79,7 +79,7 @@ Questions
 - Can you overload functions (use the same function name with different input parameters) in Python?
 - What is the difference between a global and local variable? How can you define a global variable in a local context?
 
-## Modules
+## 5. Modules
 
 Questions
 
@@ -88,7 +88,7 @@ Questions
 - How can you check what functions and attributes are included in a module?
 - Create your own module with two functions and import it to a separate script to run the functions.
 
-## Numpy and Scipy
+## 6. Numpy and Scipy
 
 NumPy and SciPy are open-source add-on modules to Python that provide common mathematical and numerical routines in pre-compiled, fast functions. Have a look at Numpy_Tutorial.pdf to familiarise yourself with the two modules.
 
@@ -110,7 +110,7 @@ Questions
     - Create a random vector of size 1000 and find the mean value *
     - Create two numpy arrays and apply following correlation functions: Pearson r, Spearman rho, Kendall tau
 
-## Biopython
+## 7. Biopython
 
 Biopython is a set of freely available tools for biological computation. Please look at Biopython_Intro.pdf to answer the following questions.
 
@@ -132,7 +132,7 @@ Questions
     6) Translate the sequence using the Standard code
     - What is the difference between Seq and MutableSeq?
 
-8. Parsing and text extraction
+## 8. Parsing and text extraction
 
 Take a look at the File Inparanoid_table.txt. It contains gene identifiers of homolog genes in two genomes (Gene identifiers of species 1 starts with ENSTGUP and species 2 with ENSGALP). Some genes have more than one homolog in the other species (multiple entries). Extract the following information:
 
@@ -140,14 +140,15 @@ Questions
 a) Create two lists, one for each species, containing the first gene identifiers of each line (the so called seed orthologs) 
 b) Create a dictionary “homologs” with the keys of the seed ortholog of species 1. Each entry should contain the seed ortholog of species 2. e.g. homologs('ENSTGUP00000011593')
 >> ENSGALP00000021957
-9. Rpy (to produce fancy graphs)
+
+## 9. Rpy (to produce fancy graphs)
 
 Rpy is a module that allows to include functions of R (a mathematical/statistical programming language) into python. You can use it to draw complex graphics and use mathematical functions that are not included in python, numpy or scipy. You can R code very simply:
 
 - Familiarise yourself with R (just type 'R' in a shell)
 
 R includes a number of datasets that it is convenient to use for examples:
-
+```
 # load prepared data trees
 data(trees)
 # First five columns of dataset tree including labels
@@ -168,7 +169,7 @@ pdf(“graphic2.pdf”)
 par(mfrow=c(1,1))
 plot(Height,Volume)
 dev.off()
-
+```
 Let's use Rpy! (from rpy import *), now you can call any R command by either:
 1) r('pdf(“graphic1.pdf”)')
 2) r.pdf(“graphics.pdf”)
