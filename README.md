@@ -1,4 +1,4 @@
-# Python tutorial - Part1
+# Python tutorial
 
 This tutorial is aimed to get familiar with the programming language Python. The file learnpython.py contains five sections introducing basic principles of the programming language. For each section there are a number of questions, please answer the questions of each section in a separate script. As a little guide to start, please read the instructions for code annotations document_code.odt. 
 
