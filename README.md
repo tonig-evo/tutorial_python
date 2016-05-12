@@ -138,8 +138,8 @@ Take a look at the File Inparanoid_table.txt. It contains gene identifiers of ho
 
 Questions
 
-a) Create two lists, one for each species, containing the first gene identifiers of each line (the so called seed orthologs) 
-b) Create a dictionary “homologs” with the keys of the seed ortholog of species 1. Each entry should contain the seed ortholog of species 2. e.g. homologs('ENSTGUP00000011593')
+- Create two lists, one for each species, containing the first gene identifiers of each line (the so called seed orthologs) 
+- Create a dictionary “homologs” with the keys of the seed ortholog of species 1. Each entry should contain the seed ortholog of species 2. e.g. homologs('ENSTGUP00000011593')
 >> ENSGALP00000021957
 
 ## 9. Rpy (to produce fancy graphs)
@@ -172,27 +172,29 @@ plot(Height,Volume)
 dev.off()
 ```
 Let's use Rpy! (from rpy import *), now you can call any R command by either:
-1) r('pdf(“graphic1.pdf”)')
-2) r.pdf(“graphics.pdf”)
+- r('pdf(“graphic1.pdf”)')
+- r.pdf(“graphics.pdf”)
 
 to assign a variable from python to R
 r.assign('variable_inR',variable_in_python)
 
 Questions
+
 - Plot the two graphs from the R tutorial above using rpy.
 Look at http://www.harding.edu/fmccown/r/ , you will find simple plots and the corresponding R code. Use rpy to complete the following tasks:
 -Plot a simple (plot each in a seprate pdf file)
-a) Line Chart (use at least three colors)
-b) Bar Chart (add a meaningful legend), 
-c) Histogram (use a lognormal distribution)
-d) Pie Chart (add a title) 
-e) Dotchart (use percentage as labels)
+    a) Line Chart (use at least three colors)
+    b) Bar Chart (add a meaningful legend), 
+    c) Histogram (use a lognormal distribution)
+    d) Pie Chart (add a title) 
+    e) Dotchart (use percentage as labels)
 
 ## 10. Run external programs
 
 External programs can be called from within python using os.system('external program').
 
 Questions
+
 - run another python script from within python
 - create a new file with the “>” pipe command
 - run the program “codeml” (in the subfolder paml). It requires an inputfile, which you can copy or explicitly define as argument 
