@@ -96,19 +96,19 @@ Also take a look at: [http://www.loria.fr/~rougier/teaching/numpy/numpy.html] (s
 
 Questions
 
-    - Import the numpy package under the name np
-    - Convert a list of numbers (5 elements) to a numpy array
-    - Convert a numpy array to a list
-    - Create two numpy arrays of the same length and apply following mathematical operations: +,*,-,/,%
-    - Create a null vector of size 10 but the fifth value which is 1 *
-    - Create a vector with values ranging from 10 to 99 *
-    - Create a 3x3 matrix with values ranging from 0 to 8 *
-    - Find indices of non-zero elements from [1,2,0,0,4,0] *
-    - Declare a 10x10x10 array with random values *
-    - Normalize a 5x5 random matrix (between 0 and 1) *
-    - Multiply a 5x3 matrix by a 3x2 matrix (real matrix product) *
-    - Create a random vector of size 1000 and find the mean value *
-    - Create two numpy arrays and apply following correlation functions: Pearson r, Spearman rho, Kendall tau
+- Import the numpy package under the name np
+- Convert a list of numbers (5 elements) to a numpy array
+- Convert a numpy array to a list
+- Create two numpy arrays of the same length and apply following mathematical operations: +,*,-,/,%
+- Create a null vector of size 10 but the fifth value which is 1 *
+- Create a vector with values ranging from 10 to 99 *
+- Create a 3x3 matrix with values ranging from 0 to 8 *
+- Find indices of non-zero elements from [1,2,0,0,4,0] *
+- Declare a 10x10x10 array with random values *
+- Normalize a 5x5 random matrix (between 0 and 1) *
+- Multiply a 5x3 matrix by a 3x2 matrix (real matrix product) *
+- Create a random vector of size 1000 and find the mean value *
+- Create two numpy arrays and apply following correlation functions: Pearson r, Spearman rho, Kendall tau
 
 ## 7. Biopython
 
@@ -116,27 +116,28 @@ Biopython is a set of freely available tools for biological computation. Please 
 
 Questions
 
-    - What is the fasta format?
-    - How to open a fasta file with Biopython?
-    - How to open a fasta file using the open command?
-    - How can you open (very) large inputfiles?
-    - How to convert a sequence in a string?
-    - How to convert a string to a sequence (e.g. DNA, RNA)
-    - Print the genetic code (standard code and mitochondrial code) using Biopython
-    - Create following DNA sequence: AAAAGAGAGATGTCCCTACCCTTT
+- What is the fasta format?
+- How to open a fasta file with Biopython?
+- How to open a fasta file using the open command?
+- How can you open (very) large inputfiles?
+- How to convert a sequence in a string?
+- How to convert a string to a sequence (e.g. DNA, RNA)
+- Print the genetic code (standard code and mitochondrial code) using Biopython
+- Create following DNA sequence: AAAAGAGAGATGTCCCTACCCTTT
     1) Find the motif “TACC”
     2) Produce the complement
     3) Produce the reverse complement
     4) Transcribe the sequence
     5) Transcribe the reverse complement
     6) Translate the sequence using the Standard code
-    - What is the difference between Seq and MutableSeq?
+- What is the difference between Seq and MutableSeq?
 
 ## 8. Parsing and text extraction
 
 Take a look at the File Inparanoid_table.txt. It contains gene identifiers of homolog genes in two genomes (Gene identifiers of species 1 starts with ENSTGUP and species 2 with ENSGALP). Some genes have more than one homolog in the other species (multiple entries). Extract the following information:
 
 Questions
+
 a) Create two lists, one for each species, containing the first gene identifiers of each line (the so called seed orthologs) 
 b) Create a dictionary “homologs” with the keys of the seed ortholog of species 1. Each entry should contain the seed ortholog of species 2. e.g. homologs('ENSTGUP00000011593')
 >> ENSGALP00000021957
@@ -187,7 +188,7 @@ c) Histogram (use a lognormal distribution)
 d) Pie Chart (add a title) 
 e) Dotchart (use percentage as labels)
 
-10. Run external programs
+## 10. Run external programs
 
 External programs can be called from within python using os.system('external program').
 
