@@ -92,7 +92,7 @@ Questions
 
 NumPy and SciPy are open-source add-on modules to Python that provide common mathematical and numerical routines in pre-compiled, fast functions. Have a look at Numpy_Tutorial.pdf to familiarise yourself with the two modules.
 
-Also take a look at: [http://www.loria.fr/~rougier/teaching/numpy/numpy.html] (solutions to questions marked with an asterisk are hidden on the website)
+Also take a look at: http://www.loria.fr/~rougier/teaching/numpy/numpy.html (solutions to questions marked with an asterisk are hidden on the website)
 
 Questions
 
@@ -191,8 +191,10 @@ Look at http://www.harding.edu/fmccown/r/ , you will find simple plots and the c
 
 ## 10. Run external programs
 
-External programs can be called from within python using os.system('external program').
-
+External programs can be called from within python using 
+```
+os.system('external program')
+```
 Questions
 
 - run another python script from within python
