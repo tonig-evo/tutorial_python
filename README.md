@@ -5,7 +5,7 @@ This tutorial is aimed to get familiar with the programming language Python. The
 Question
 What are the three basic rules for code annotation?
 
-## Primitive Datatypes and Operators
+## 1. Primitive Datatypes and Operators
 
 Questions
 
@@ -29,13 +29,13 @@ Questions
 - How do you extract the first letter of a string?
 - How do you extract the second digit of a numeric variable?
 
-## Variables and Collections
+## 2. Variables and Collections
 
 Questions
 
 - How do you assign a variable? How do you print a variable?
 - What is the syntax to create
-      - a list
+    - a list
     - a tuple
     - a dictionary
     - a set
@@ -44,7 +44,6 @@ Questions
     - a tuple
     - a dictionary
     - a set
-
 - How do you create 
     - the union of a list
     - the intersection of a list
@@ -57,7 +56,7 @@ Questions
 - How do you obtain the last but one element of a list
 - Can you apply list commands to strings?
 
-## Control Flow
+## 3. Control Flow
 
 Questions
 
@@ -69,7 +68,7 @@ Questions
 - Code an exception handling for a zero division 
 - Assume a string of coding DNA, extract for each letter the codon position (1st,2nd and 3rd) using a loop and the if command
 
-## Functions
+## 4. Functions
 
 Questions
 
