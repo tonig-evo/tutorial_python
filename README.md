@@ -140,8 +140,12 @@ Take a look at the File [Inparanoid_table.txt](Inparanoid_table.txt). It contain
 **Questions**
 
 - Create two lists, one for each species, containing the first gene identifiers of each line (the so called seed orthologs) 
-- Create a dictionary “homologs” with the keys of the seed ortholog of species 1. Each entry should contain the seed ortholog of species 2. e.g. homologs('ENSTGUP00000011593')
+- Create a dictionary “homologs” with the keys of the seed ortholog of species 1. Each entry should contain the seed ortholog of species 2 such as
+
+```
+homologs('ENSTGUP00000011593')
 >> ENSGALP00000021957
+```
 
 ## 9. Rpy (to produce fancy graphs)
 
