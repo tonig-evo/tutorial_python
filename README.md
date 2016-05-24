@@ -112,7 +112,7 @@ Questions
 
 ## 7. Biopython
 
-Biopython is a set of freely available tools for biological computation. Please look at Biopython_Intro.pdf to answer the following questions.
+Biopython is a set of freely available tools for biological computation. Please look at [Biopython_Intro.pdf](Biopython_Intro.pdf) to answer the following questions.
 
 Questions
 
