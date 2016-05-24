@@ -145,7 +145,7 @@ Take a look at the File [Inparanoid_table.txt](Inparanoid_table.txt). It contain
 
 ## 9. Rpy (to produce fancy graphs)
 
-** This section will not work with the most recent rpy version. Please try to run the program with R only **
+### This section will not work with the most recent rpy and R version. If it does not work, please try to run the program with R only
 
 Rpy is a module that allows to include functions of R (a mathematical/statistical programming language) into python. You can use it to draw complex graphics and use mathematical functions that are not included in python, numpy or scipy. You can R code very simply:
 
@@ -198,7 +198,7 @@ External programs can be called from within python using
 ```
 os.system('external program')
 ```
-Questions
+**Questions**
 
 - run another python script from within python
 - create a new file with the “>” pipe command
