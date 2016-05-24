@@ -2,12 +2,13 @@
 
 This tutorial is aimed to get familiar with the programming language Python. The file [learnpython.py](learnpython.py) contains five sections introducing basic principles of the programming language. For each section there are a number of questions, please answer the questions of each section in a separate script. As a little guide to start, please read the instructions for code annotations [How_to_document_code.pdf](How_to_document_code.pdf). 
 
-Question
+**Question**
+
 What are the three basic rules for code annotation?
 
 ## 1. Primitive Datatypes and Operators
 
-Questions
+**Questions**
 
 - Which python version is installed on your system (type python in a terminal)
 - How do you print a string/numeric?
@@ -31,7 +32,7 @@ Questions
 
 ## 2. Variables and Collections
 
-Questions
+**Questions**
 
 - How do you assign a variable? How do you print a variable?
 - What is the syntax to create
@@ -58,7 +59,7 @@ Questions
 
 ## 3. Control Flow
 
-Questions
+**Questions**
 
 - How to use the ”for … in” loop to extract every other letter of a string
 - Use the “if ... elif … else” function to check if a variable contains letters, numerics or both
@@ -70,7 +71,7 @@ Questions
 
 ## 4. Functions
 
-Questions
+**Questions**
 
 - Write a function that returns the GC content of a  string(e.g. a DNA string that contains of the four letters A,C,G,T or a,c,g,t)
 - Do you need to return a value in a function?
@@ -81,7 +82,7 @@ Questions
 
 ## 5. Modules
 
-Questions
+**Questions**
 
 - How and where to import a module in a python script?
 - Check if following modules are installed on your computer and import them: scipy, numpy, rpy, math
@@ -90,11 +91,11 @@ Questions
 
 ## 6. Numpy and Scipy
 
-NumPy and SciPy are open-source add-on modules to Python that provide common mathematical and numerical routines in pre-compiled, fast functions. Have a look at Numpy_Tutorial.pdf to familiarise yourself with the two modules.
+NumPy and SciPy are open-source add-on modules to Python that provide common mathematical and numerical routines in pre-compiled, fast functions. Have a look at [Numpy_Tutorial.pdf](Numpy_Tutorial.pdf) to familiarise yourself with the two modules.
 
 Also take a look at: http://www.loria.fr/~rougier/teaching/numpy/numpy.html (solutions to questions marked with an asterisk are hidden on the website)
 
-Questions
+**Questions**
 
 - Import the numpy package under the name np
 - Convert a list of numbers (5 elements) to a numpy array
@@ -114,7 +115,7 @@ Questions
 
 Biopython is a set of freely available tools for biological computation. Please look at [Biopython_Intro.pdf](Biopython_Intro.pdf) to answer the following questions.
 
-Questions
+**Questions**
 
 - What is the fasta format?
 - How to open a fasta file with Biopython?
@@ -136,13 +137,15 @@ Questions
 
 Take a look at the File [Inparanoid_table.txt](Inparanoid_table.txt). It contains gene identifiers of homolog genes in two genomes (Gene identifiers of species 1 starts with ENSTGUP and species 2 with ENSGALP). Some genes have more than one homolog in the other species (multiple entries). Extract the following information:
 
-Questions
+**Questions**
 
 - Create two lists, one for each species, containing the first gene identifiers of each line (the so called seed orthologs) 
 - Create a dictionary “homologs” with the keys of the seed ortholog of species 1. Each entry should contain the seed ortholog of species 2. e.g. homologs('ENSTGUP00000011593')
 >> ENSGALP00000021957
 
 ## 9. Rpy (to produce fancy graphs)
+
+** This section will not work with the most recent rpy version. Please try to run the program with R only **
 
 Rpy is a module that allows to include functions of R (a mathematical/statistical programming language) into python. You can use it to draw complex graphics and use mathematical functions that are not included in python, numpy or scipy. You can R code very simply:
 
@@ -178,7 +181,7 @@ Let's use Rpy! (from rpy import *), now you can call any R command by either:
 to assign a variable from python to R
 r.assign('variable_inR',variable_in_python)
 
-Questions
+**Questions**
 
 - Plot the two graphs from the R tutorial above using rpy.
 Look at http://www.harding.edu/fmccown/r/ , you will find simple plots and the corresponding R code. Use rpy to complete the following tasks:
