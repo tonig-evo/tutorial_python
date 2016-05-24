@@ -134,7 +134,7 @@ Questions
 
 ## 8. Parsing and text extraction
 
-Take a look at the File Inparanoid_table.txt. It contains gene identifiers of homolog genes in two genomes (Gene identifiers of species 1 starts with ENSTGUP and species 2 with ENSGALP). Some genes have more than one homolog in the other species (multiple entries). Extract the following information:
+Take a look at the File [Inparanoid_table.txt](Inparanoid_table.txt). It contains gene identifiers of homolog genes in two genomes (Gene identifiers of species 1 starts with ENSTGUP and species 2 with ENSGALP). Some genes have more than one homolog in the other species (multiple entries). Extract the following information:
 
 Questions
 
