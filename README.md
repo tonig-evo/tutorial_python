@@ -207,4 +207,4 @@ os.system('external program')
 - run another python script from within python
 - create a new file with the “>” pipe command
 - run the program “codeml” (in the subfolder paml). It requires an inputfile, which you can copy or explicitly define as argument 
-- obtain the likelihood of the output file of codeml (file codeml_output, it's indicated on the line with lnL = ) 
+- obtain the likelihood of the output file of codeml (file codeml_output, it's indicated on the line with lnL = ) using a script that prints the likelihood
