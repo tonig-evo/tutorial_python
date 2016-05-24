@@ -185,12 +185,12 @@ r.assign('variable_inR',variable_in_python)
 
 - Plot the two graphs from the R tutorial above using rpy.
 Look at http://www.harding.edu/fmccown/r/ , you will find simple plots and the corresponding R code. Use rpy to complete the following tasks:
--Plot a simple (plot each in a seprate pdf file)
-    a) Line Chart (use at least three colors)
-    b) Bar Chart (add a meaningful legend), 
-    c) Histogram (use a lognormal distribution)
-    d) Pie Chart (add a title) 
-    e) Dotchart (use percentage as labels)
+- Plot a simple (plot each in a seprate pdf file)
+    1. Line Chart (use at least three colors)
+    2. Bar Chart (add a meaningful legend), 
+    3. Histogram (use a lognormal distribution)
+    4. Pie Chart (add a title) 
+    5. Dotchart (use percentage as labels)
 
 ## 10. Run external programs
 
