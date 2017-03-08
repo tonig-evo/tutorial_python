@@ -133,7 +133,7 @@ Biopython is a set of freely available tools for biological computation. Please 
     6) Translate the sequence using the Standard code
 - What is the difference between Seq and MutableSeq?
 
-## 8. Parsing and text extraction
+## 8. File handling: Parsing, text extraction and writing
 
 Take a look at the File [Inparanoid_table.txt](Inparanoid_table.txt). It contains gene identifiers of homolog genes in two genomes (Gene identifiers of species 1 starts with ENSTGUP and species 2 with ENSGALP). Some genes have more than one homolog in the other species (multiple entries). Extract the following information:
 
@@ -147,7 +147,7 @@ homologs('ENSTGUP00000011593')
 >> ENSGALP00000021957
 ```
 
-## 9. Rpy (to produce fancy graphs)
+## 9. Plotting with seaborn or ggplot2 (through R)
 
 ### This section will not work with the most recent rpy and R version. If it does not work, please try to run the program with R only
 
@@ -196,7 +196,9 @@ Look at http://www.harding.edu/fmccown/r/ , you will find simple plots and the c
     4. Pie Chart (add a title) 
     5. Dotchart (use percentage as labels)
 
-## 10. Run external programs
+## 10. Pysam (Samtools)
+
+## 11. Run external programs
 
 External programs can be called from within python using 
 ```
