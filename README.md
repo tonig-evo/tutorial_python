@@ -133,19 +133,12 @@ Biopython is a set of freely available tools for biological computation. Please 
     6) Translate the sequence using the Standard code
 - What is the difference between Seq and MutableSeq?
 
-## 8. Parsing and text extraction
+## 8. Parsing and manipulating a text file
 
-Take a look at the File [Inparanoid_table.txt](Inparanoid_table.txt). It contains gene identifiers of homolog genes in two genomes (Gene identifiers of species 1 starts with ENSTGUP and species 2 with ENSGALP). Some genes have more than one homolog in the other species (multiple entries). Extract the following information:
+Follow the link below for this step of the workshop:
 
-**Questions**
+<working_with_text_files/README.md>
 
-- Create two lists, one for each species, containing the first gene identifiers of each line (the so called seed orthologs) 
-- Create a dictionary “homologs” with the keys of the seed ortholog of species 1. Each entry should contain the seed ortholog of species 2 such as
-
-```
-homologs('ENSTGUP00000011593')
->> ENSGALP00000021957
-```
 
 ## 9. Rpy (to produce fancy graphs)
 
