@@ -56,7 +56,7 @@ for line in vcf_file:
     # do something for each line
 ```
 
-At this point it is useful to have an idea of what you want to do. In this case we are going to extract all insertion and deletion positions and write them to a ```.bed``` file.
+At this point it is useful to have an idea of what you want to do. In this case we are going to extract all insertions and deletions over 10 base pairs and write their positions to a ```.bed``` file.
 
 For this task we do not need any of the VCFs header information so we skip it:
 
@@ -104,4 +104,181 @@ Run this code and you will see that python is storing our data line in a list, w
 ['chrLGE22', '10702', '.', 'GCCATTTCCAAGCACTTTTGTCC', 'G', '855.58', 'PASS', 'AC=1;AF=0.050;AN=20;BaseQRankSum=0.597;ClippingRankSum=1.16;DP=563;FS=4.524;InbreedingCoeff=-0.0526;MLEAC=1;MLEAF=0.050;MQ=60.25;MQRankSum=-9.620e-01;POSITIVE_TRAIN_SITE;QD=19.90;ReadPosRankSum=1.08;SOR=0.275;VQSLOD=2.93;culprit=MQRankSum', 'GT:AD:DP:GQ:PL', '0/1:20,23:43:99:890,0,755', '0/0:51,0:51:99:0,120,1800', '0/0:67,0:67:99:0,120,1800', '0/0:63,0:63:99:0,120,1800', '0/0:57,0:57:99:0,120,1800', '0/0:60,0:60:99:0,120,1800', '0/0:68,0:68:99:0,120,1800', '0/0:38,0:38:99:0,99,1139', '0/0:46,0:46:99:0,120,1800', '0/0:69,0:69:99:0,120,1800']
 ```
 
+As code gets more complicated it is good to keep track of whats going on with comments:
 
+```python
+vcf_file = open('gt_chrLGE22.vcf', 'r')
+
+# loop through the vcf file
+for line in vcf_file:
+    
+    # skip header lines
+    if line.startswith('#'):
+        continue
+    
+    # process data lines
+    split_line = line.rstrip('\n').split('\t')
+```
+
+As we want to identify INDEL sites with a certain length we need to know the length of each INDEL we process. We know that reference allele is in the forth column and the alternate allele is in the fifth column so we can ge the INDEL length with the following code:
+ 
+```python
+vcf_file = open('gt_chrLGE22.vcf', 'r')
+
+# loop through the vcf file
+for line in vcf_file:
+    
+    # skip header lines
+    if line.startswith('#'):
+        continue
+    
+    # process data lines
+    split_line = line.rstrip('\n').split('\t')
+    ref_allele = split_line[3]
+    alt_allele = split_line[4]
+    indel_length = len(ref_allele) - len(alt_allele)
+    # print statement to check what is going on
+    print ref_allele, alt_allele, indel_length
+```
+
+We get the follwoing output from our print statement:
+ 
+```
+AT A 1
+GTGTCCCTCTCTGTCCCTCTC G 20
+GC G 1
+A ATGC -3
+A ACTGGCCC -7
+```
+This shows that we are pulling out the correct columns, but it also shows we are getting negative numbers for lengths which is not meaningful, to fix this we can use ```abs()``` to get the absolute value of the length calculation:
+
+```python
+vcf_file = open('gt_chrLGE22.vcf', 'r')
+
+# loop through the vcf file
+for line in vcf_file:
+    
+    # skip header lines
+    if line.startswith('#'):
+        continue
+    
+    # process data lines
+    split_line = line.rstrip('\n').split('\t')
+    ref_allele = split_line[3]
+    alt_allele = split_line[4]
+    indel_length = abs(len(ref_allele) - len(alt_allele))
+```
+
+So now we know the lengths we can selectively process INDELs based on their lengths. In this example if an INDEL is longer than 10bp we want to know its position, (chromosome, start, end) so that we can write a bed file.
+
+```python
+vcf_file = open('gt_chrLGE22.vcf', 'r')
+
+# loop through the vcf file
+for line in vcf_file:
+    
+    # skip header lines
+    if line.startswith('#'):
+        continue
+    
+    # process data lines
+    split_line = line.rstrip('\n').split('\t')
+    ref_allele = split_line[3]
+    alt_allele = split_line[4]
+    indel_length = abs(len(ref_allele) - len(alt_allele))
+    
+    # get positions for INDELs longer than 10bp
+    if indel_length > 10:
+        chromo = split_line[0]
+        start = str(int(split_line[1]) - 1)  # adjust start coordinate to be 0 based for bed file
+        end = str(int(split_line[1]) + len(ref_allele))
+        output_string = '\t'.join([chromo, start, end])
+        print output_string
+```
+
+This code outputs the positions of INDELs over 10bp.
+
+```
+chrLGE22	1441	1463
+chrLGE22	10701	10725
+chrLGE22	39913	39949
+chrLGE22	47631	47633
+chrLGE22	69768	69770
+chrLGE22	69772	69774
+chrLGE22	71206	71229
+chrLGE22	79124	79126
+```
+
+However now we have to write this data to a file. To do this we need open a new file, write to it and close it, in addition we also need to close the vcf file after we have finished reading it.
+
+```python
+# open output file
+output_bed = open('gt_indels_over_10bp.bed', 'w')
+
+vcf_file = open('gt_chrLGE22.vcf', 'r')
+
+# loop through the vcf file
+for line in vcf_file:
+    
+    # skip header lines
+    if line.startswith('#'):
+        continue
+    
+    # process data lines
+    split_line = line.rstrip('\n').split('\t')
+    ref_allele = split_line[3]
+    alt_allele = split_line[4]
+    indel_length = abs(len(ref_allele) - len(alt_allele))
+    
+    # get positions for INDELs longer than 10bp
+    if indel_length > 10:
+        chromo = split_line[0]
+        start = str(int(split_line[1]) - 1)  # adjust start coordinate to be 0 based for bed file
+        end = str(int(split_line[1]) + len(ref_allele))
+        output_string = '\t'.join([chromo, start, end])
+        output_bed.write(output_string)
+        
+# close files
+output_bed.close()
+vcf_file.close()
+```
+
+This succeeds in writting a bed file, but when we look inside we see that all the data is compressed onto one line:
+ 
+```
+chrLGE22	1441	1463chrLGE22	10701	10725chrLGE22	39913	39949chrLGE22	47631	47633chrLGE22	69768	69770chrLGE22	69772	69774chrLGE22	71206	71229chrLGE22	79124	79126chrLGE22	86321	86323chrLGE22	90821	90842chrLGE22	134979	135001chrLGE22	153956	153958chrLGE22	188528	188578chrLGE22	188930	188943chrLGE22	189180	189182chrLGE22	190405	190422chrLGE22	193655	193669chrLGE22	217604	217606chrLGE22	217625	217660chrLGE22	236384	236402chrLGE22	236404	236421chrLGE22	244930	244932chrLGE22	248170	248183chrLGE22	270343	270357chrLGE22	278074	278119chrLGE22	282490	282520chrLGE22	291811	291843chrLGE22	291902	291934chrLGE22	308885	308913chrLGE22	311307	311322chrLGE22	312629	312645chrLGE22	327394	327427chrLGE22	339846	339870chrLGE22	346699	346701chrLGE22	353756	353769chrLGE22	360069	360092chrLGE22	360343	360358chrLGE22	369710	369727chrLGE22	369850	369878chrLGE22	375985	376006chrLGE22	382705	382724chrLGE22	391925	391938chrLGE22	401980	401997chrLGE22	407394	407396chrLGE22	410060	410076chrLGE22	414250	414297chrLGE22	425014	425037chrLGE22	433077	433079chrLGE22	450051	450077chrLGE22	454477	454479chrLGE22	455444	455459chrLGE22	468515	468517chrLGE22	472525	472569chrLGE22	474798	474815chrLGE22	476146	476165chrLGE22	478309	478311chrLGE22	480926	480940chrLGE22	482358	482373chrLGE22	482551	482575chrLGE22	482574	482595chrLGE22	484195	484197chrLGE22	485779	485781chrLGE22	486196	486209chrLGE22	491073	491088chrLGE22	496078	496117chrLGE22	497801	497826chrLGE22	500720	500750chrLGE22	510949	510973chrLGE22	512267	512280chrLGE22	548308	548325chrLGE22	558314	558328chrLGE22	600296	600311chrLGE22	676795	676813chrLGE22	692562	692564chrLGE22	697314	697338chrLGE22	711377	711397chrLGE22	734750	734767chrLGE22	745451	745453chrLGE22	771889	771925
+```
+
+This is because whilst print starts on a new line with each call, write just continues where it left off. To fix this we need to add on a new line character '\n':
+
+```python
+# open output file
+output_bed = open('gt_indels_over_10bp.bed', 'w')
+
+vcf_file = open('gt_chrLGE22.vcf', 'r')
+
+# loop through the vcf file
+for line in vcf_file:
+    
+    # skip header lines
+    if line.startswith('#'):
+        continue
+    
+    # process data lines
+    split_line = line.rstrip('\n').split('\t')
+    ref_allele = split_line[3]
+    alt_allele = split_line[4]
+    indel_length = abs(len(ref_allele) - len(alt_allele))
+    
+    # get positions for INDELs longer than 10bp
+    if indel_length > 10:
+        chromo = split_line[0]
+        start = str(int(split_line[1]) - 1)  # adjust start coordinate to be 0 based for bed file
+        end = str(int(split_line[1]) + len(ref_allele))
+        output_string = '\t'.join([chromo, start, end]) + '\n'
+        output_bed.write(output_string)
+        
+# close files
+output_bed.close()
+vcf_file.close()
+```
