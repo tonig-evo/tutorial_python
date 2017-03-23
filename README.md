@@ -137,7 +137,7 @@ Biopython is a set of freely available tools for biological computation. Please 
 
 Follow the link below for this step of the workshop:
 
-<working_with_text_files/README.md>
+[](working_with_text_files/README.md)
 
 
 ## 9. Rpy (to produce fancy graphs)
