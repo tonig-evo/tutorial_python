@@ -2,6 +2,8 @@
 
 This tutorial is aimed to get familiar with the programming language Python. The file [learnpython.py](learnpython.py) contains five sections introducing basic principles of the programming language. For each section there are a number of questions, please answer the questions of each section in a separate script. As a little guide to start, please read the instructions for code annotations [How_to_document_code.pdf](How_to_document_code.pdf). 
 
+# TODO set up script
+
 **Question**
 
 What are the three basic rules for code annotation?
@@ -30,7 +32,7 @@ What are the three basic rules for code annotation?
 - How do you extract the first letter of a string?
 - How do you extract the second digit of a numeric variable?
 
-## 2. Variables and Collections
+## 2. Variables and Collections simplyfy
 
 **Questions**
 
@@ -69,16 +71,6 @@ What are the three basic rules for code annotation?
 - Code an exception handling for a zero division 
 - Assume a string of coding DNA, extract for each letter the codon position (1st,2nd and 3rd) using a loop and the if command
 
-## 4. Functions
-
-**Questions**
-
-- Write a function that returns the GC content of a  string(e.g. a DNA string that contains of the four letters A,C,G,T or a,c,g,t)
-- Do you need to return a value in a function?
-- What is the “None” object
-- Write a recursive function (a function that calls itself) to calculate faculty.
-- Can you overload functions (use the same function name with different input parameters) in Python?
-- What is the difference between a global and local variable? How can you define a global variable in a local context?
 
 ## 5. Modules
 
@@ -133,19 +125,12 @@ Biopython is a set of freely available tools for biological computation. Please 
     6) Translate the sequence using the Standard code
 - What is the difference between Seq and MutableSeq?
 
-## 8. Parsing and text extraction
+## 8. Parsing and manipulating a text file
 
-Take a look at the File [Inparanoid_table.txt](Inparanoid_table.txt). It contains gene identifiers of homolog genes in two genomes (Gene identifiers of species 1 starts with ENSTGUP and species 2 with ENSGALP). Some genes have more than one homolog in the other species (multiple entries). Extract the following information:
+Follow the link below for this step of the workshop:
 
-**Questions**
+[working with text files](working_with_text_files/README.md)
 
-- Create two lists, one for each species, containing the first gene identifiers of each line (the so called seed orthologs) 
-- Create a dictionary “homologs” with the keys of the seed ortholog of species 1. Each entry should contain the seed ortholog of species 2 such as
-
-```
-homologs('ENSTGUP00000011593')
->> ENSGALP00000021957
-```
 
 ## 9. Rpy (to produce fancy graphs)
 
