@@ -2,6 +2,24 @@
 
 This tutorial is aimed to get familiar with the programming language Python. The file [learnpython.py](learnpython.py) contains five sections introducing basic principles of the programming language. For each section there are a number of questions, please answer the questions of each section in a separate script. As a little guide to start, please read the instructions for code annotations [How_to_document_code.pdf](How_to_document_code.pdf). 
 
+## 0. Setup
+
+First off you will need to clone this github repository and make it your working directory as follows:
+
+```
+git clone https://github.com/tonig-evo/tutorial_python.git
+cd tutorial_python
+```
+
+You will then need to load a python environment setup for this course: 
+
+```
+conda env create -f aps_course.yml
+source activate aps_course
+```
+
+todo still needs modules adding
+
 **Question**
 
 What are the three basic rules for code annotation?
