@@ -14,17 +14,18 @@ cd tutorial_python
 You will then need to load a python environment setup for this course: 
 
 ```
+module load apps/python/conda
 conda env create -f aps_course.yml
 source activate aps_course
 ```
 
 todo still needs modules adding
 
-**Question**
+## 1 intro section
 
-What are the three basic rules for code annotation?
+Move 1 and 2 into one subfolder?
 
-## 1. Primitive Datatypes and Operators
+## 1a. Primitive Datatypes and Operators
 
 **Questions**
 
@@ -48,7 +49,7 @@ What are the three basic rules for code annotation?
 - How do you extract the first letter of a string?
 - How do you extract the second digit of a numeric variable?
 
-## 2. Variables and Collections
+## 1b. Variables and Collections simplyfy
 
 **Questions**
 
@@ -75,7 +76,9 @@ What are the three basic rules for code annotation?
 - How do you obtain the last but one element of a list
 - Can you apply list commands to strings?
 
-## 3. Control Flow
+## 2. Control Flow
+
+Own folder?
 
 **Questions**
 
@@ -87,18 +90,8 @@ What are the three basic rules for code annotation?
 - Code an exception handling for a zero division 
 - Assume a string of coding DNA, extract for each letter the codon position (1st,2nd and 3rd) using a loop and the if command
 
-## 4. Functions
 
-**Questions**
-
-- Write a function that returns the GC content of a  string(e.g. a DNA string that contains of the four letters A,C,G,T or a,c,g,t)
-- Do you need to return a value in a function?
-- What is the “None” object
-- Write a recursive function (a function that calls itself) to calculate faculty.
-- Can you overload functions (use the same function name with different input parameters) in Python?
-- What is the difference between a global and local variable? How can you define a global variable in a local context?
-
-## 5. Modules
+## 3. Modules
 
 **Questions**
 
@@ -107,7 +100,7 @@ What are the three basic rules for code annotation?
 - How can you check what functions and attributes are included in a module?
 - Create your own module with two functions and import it to a separate script to run the functions.
 
-## 6. Numpy and Scipy
+## 3 continued. Numpy and Scipy
 
 NumPy and SciPy are open-source add-on modules to Python that provide common mathematical and numerical routines in pre-compiled, fast functions. Have a look at [Numpy_Tutorial.pdf](Numpy_Tutorial.pdf) to familiarise yourself with the two modules.
 
@@ -128,6 +121,25 @@ Also take a look at: http://www.loria.fr/~rougier/teaching/numpy/numpy.html (sol
 - Multiply a 5x3 matrix by a 3x2 matrix (real matrix product) *
 - Create a random vector of size 1000 and find the mean value *
 - Create two numpy arrays and apply following correlation functions: Pearson r, Spearman rho, Kendall tau
+
+## 4. Parsing and manipulating a text file
+
+todo add some intro 
+
+Follow the link below for this step of the workshop:
+
+[working with text files](working_with_text_files/README.md)
+
+## 5. Pipelines and external programs
+
+todo add some intro
+
+Follow the link below for this step of the workshop:
+
+[Pipelines and external programs](pipelines and external programs/README.md)
+
+
+# START OPTIONAL AFTERNOON TUTORIALS HERE
 
 ## 7. Biopython
 
@@ -150,20 +162,6 @@ Biopython is a set of freely available tools for biological computation. Please 
     5) Transcribe the reverse complement
     6) Translate the sequence using the Standard code
 - What is the difference between Seq and MutableSeq?
-
-## 8. File handling: Parsing, text extraction and writing
-
-Take a look at the File [Inparanoid_table.txt](Inparanoid_table.txt). It contains gene identifiers of homolog genes in two genomes (Gene identifiers of species 1 starts with ENSTGUP and species 2 with ENSGALP). Some genes have more than one homolog in the other species (multiple entries). Extract the following information:
-
-**Questions**
-
-- Create two lists, one for each species, containing the first gene identifiers of each line (the so called seed orthologs) 
-- Create a dictionary “homologs” with the keys of the seed ortholog of species 1. Each entry should contain the seed ortholog of species 2 such as
-
-```
-homologs('ENSTGUP00000011593')
->> ENSGALP00000021957
-```
 
 ## 9. Plotting with seaborn or ggplot2 (through R)
 
@@ -216,15 +214,5 @@ Look at http://www.harding.edu/fmccown/r/ , you will find simple plots and the c
 
 ## 10. Pysam (Samtools)
 
-## 11. Run external programs
 
-External programs can be called from within python using 
-```
-os.system('external program')
-```
-**Questions**
 
-- run another python script from within python
-- create a new file with the “>” pipe command
-- run the program “codeml” (in the subfolder paml). It requires an inputfile, which you can copy or explicitly define as argument 
-- obtain the likelihood of the output file of codeml (file codeml_output, it's indicated on the line with lnL = ) using a script that prints the likelihood
