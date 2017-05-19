@@ -21,11 +21,11 @@ source activate aps_course
 
 todo still needs modules adding
 
-**Question**
+## 1 intro section
 
-What are the three basic rules for code annotation?
+Move 1 and 2 into one subfolder?
 
-## 1. Primitive Datatypes and Operators
+## 1a. Primitive Datatypes and Operators
 
 **Questions**
 
@@ -49,7 +49,7 @@ What are the three basic rules for code annotation?
 - How do you extract the first letter of a string?
 - How do you extract the second digit of a numeric variable?
 
-## 2. Variables and Collections simplyfy
+## 1b. Variables and Collections simplyfy
 
 **Questions**
 
@@ -76,7 +76,9 @@ What are the three basic rules for code annotation?
 - How do you obtain the last but one element of a list
 - Can you apply list commands to strings?
 
-## 3. Control Flow
+## 2. Control Flow
+
+Own folder?
 
 **Questions**
 
@@ -89,7 +91,7 @@ What are the three basic rules for code annotation?
 - Assume a string of coding DNA, extract for each letter the codon position (1st,2nd and 3rd) using a loop and the if command
 
 
-## 5. Modules
+## 3. Modules
 
 **Questions**
 
@@ -98,7 +100,7 @@ What are the three basic rules for code annotation?
 - How can you check what functions and attributes are included in a module?
 - Create your own module with two functions and import it to a separate script to run the functions.
 
-## 6. Numpy and Scipy
+## 3 continued. Numpy and Scipy
 
 NumPy and SciPy are open-source add-on modules to Python that provide common mathematical and numerical routines in pre-compiled, fast functions. Have a look at [Numpy_Tutorial.pdf](Numpy_Tutorial.pdf) to familiarise yourself with the two modules.
 
@@ -119,6 +121,25 @@ Also take a look at: http://www.loria.fr/~rougier/teaching/numpy/numpy.html (sol
 - Multiply a 5x3 matrix by a 3x2 matrix (real matrix product) *
 - Create a random vector of size 1000 and find the mean value *
 - Create two numpy arrays and apply following correlation functions: Pearson r, Spearman rho, Kendall tau
+
+## 4. Parsing and manipulating a text file
+
+todo add some intro 
+
+Follow the link below for this step of the workshop:
+
+[working with text files](working_with_text_files/README.md)
+
+## 5. Pipelines and external programs
+
+todo add some intro
+
+Follow the link below for this step of the workshop:
+
+[Pipelines and external programs](pipelines and external programs/README.md)
+
+
+# START OPTIONAL AFTERNOON TUTORIALS HERE
 
 ## 7. Biopython
 
@@ -141,17 +162,6 @@ Biopython is a set of freely available tools for biological computation. Please 
     5) Transcribe the reverse complement
     6) Translate the sequence using the Standard code
 - What is the difference between Seq and MutableSeq?
-
-<<<<<<< HEAD
-## 8. File handling: Parsing, text extraction and writing
-=======
-## 8. Parsing and manipulating a text file
->>>>>>> 132420a1c6f1545fc13e510c6c49ba165915bc49
-
-Follow the link below for this step of the workshop:
-
-[working with text files](working_with_text_files/README.md)
-
 
 ## 9. Plotting with seaborn or ggplot2 (through R)
 
@@ -204,15 +214,5 @@ Look at http://www.harding.edu/fmccown/r/ , you will find simple plots and the c
 
 ## 10. Pysam (Samtools)
 
-## 11. Run external programs
 
-External programs can be called from within python using 
-```
-os.system('external program')
-```
-**Questions**
 
-- run another python script from within python
-- create a new file with the “>” pipe command
-- run the program “codeml” (in the subfolder paml). It requires an inputfile, which you can copy or explicitly define as argument 
-- obtain the likelihood of the output file of codeml (file codeml_output, it's indicated on the line with lnL = ) using a script that prints the likelihood
