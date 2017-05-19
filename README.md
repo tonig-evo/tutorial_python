@@ -4,7 +4,9 @@ This tutorial is aimed to get familiar with the programming language Python. The
 
 ## 0. Setup
 
-First off you will need to clone this github repository and make it your working directory as follows:
+First off got to following link: <https://myapps.shef.ac.uk/sgd/> and enter your iceberg login details. Then click the "Iceberg Applications" menu on the left and select "interactive job", a terminal window should appear.
+
+You now need to clone this github repository and make it your working directory as follows:
 
 ```
 git clone https://github.com/tonig-evo/tutorial_python.git
@@ -20,6 +22,8 @@ source activate aps_course
 ```
 
 todo still needs modules adding
+
+Once this is done you can return to "Iceberg Applications" menu and click on "gedit" which will open the text editor that you will use to write your scripts.
 
 ## 1 intro section
 
@@ -136,7 +140,7 @@ todo add some intro
 
 Follow the link below for this step of the workshop:
 
-[Pipelines and external programs](pipelines and external programs/README.md)
+[Pipelines and external programs](pipelines_and_external_programs/README.md)
 
 
 # START OPTIONAL AFTERNOON TUTORIALS HERE
