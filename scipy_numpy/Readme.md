@@ -1,6 +1,6 @@
 ## Numpy and Scipy
 
-NumPy and SciPy are open-source add-on modules to Python that provide common mathematical and numerical routines in pre-compiled, fast functions. Have a look at [../Numpy_Tutorial.pdf](Numpy_Tutorial.pdf) to familiarise yourself with the two modules.
+NumPy and SciPy are open-source add-on modules to Python that provide common mathematical and numerical routines in pre-compiled, fast functions. Have a look at [Numpy_Tutorial.pdf](../Numpy_Tutorial.pdf) to familiarise yourself with the two modules.
 
 Also take a look at: http://www.loria.fr/~rougier/teaching/numpy/numpy.html (solutions to questions marked with an asterisk are hidden on the website)
 
