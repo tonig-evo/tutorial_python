@@ -82,8 +82,6 @@ Move 1 and 2 into one subfolder?
 
 ## 2. Control Flow
 
-Own folder?
-
 **Questions**
 
 - How to use the ”for … in” loop to extract every other letter of a string
@@ -122,6 +120,11 @@ Follow the link below for this step of the workshop:
 
 
 # START OPTIONAL AFTERNOON TUTORIALS HERE
+
+## 6. Numpy and Scipy
+
+[Introduction to numpy and scipy](scipy_numpy/README.md)
+
 
 ## 7. Biopython
 
