@@ -183,7 +183,11 @@ Look at http://www.harding.edu/fmccown/r/ , you will find simple plots and the c
     4. Pie Chart (add a title) 
     5. Dotchart (use percentage as labels)
 
-## 10. Pysam (Samtools)
+## 9. Egglib
+
+EggLib is a C++/Python library and program package for evolutionary genetics and genomics. Main features are sequence data management, sequence polymorphism analysis, and coalescent simulations. EggLib is a flexible Python module with a performant underlying C++ library and allows fast and intuitive development of Python programs and scripts.
+
+[Introduction to Egglib](Egglib/Readme.md)
 
 
 
