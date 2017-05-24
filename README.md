@@ -27,8 +27,6 @@ Once this is done you can return to "Iceberg Applications" menu and click on "ge
 
 ## 1 intro section
 
-Move 1 and 2 into one subfolder?
-
 ## 1a. Primitive Datatypes and Operators
 
 **Questions**
@@ -60,14 +58,10 @@ Move 1 and 2 into one subfolder?
 - How do you assign a variable? How do you print a variable?
 - What is the syntax to create
     - a list
-    - a tuple
     - a dictionary
-    - a set
 - How do you check for the existence of an element in
     - a list
-    - a tuple
     - a dictionary
-    - a set
 - How do you create 
     - the union of a list
     - the intersection of a list
@@ -87,7 +81,6 @@ Move 1 and 2 into one subfolder?
 - How to use the ”for … in” loop to extract every other letter of a string
 - Use the “if ... elif … else” function to check if a variable contains letters, numerics or both
 - Use the “for … in” loop to calculate faculty
-- Use the “while … ” loop to calculate faculty
 - Use a suitable loop to check if a number is a prime number
 - Code an exception handling for a zero division 
 - Assume a string of coding DNA, extract for each letter the codon position (1st,2nd and 3rd) using a loop and the if command
