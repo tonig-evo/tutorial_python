@@ -123,6 +123,8 @@ Follow the link below for this step of the workshop:
 
 ## 6. Numpy and Scipy
 
+NumPy and SciPy are open-source add-on modules to Python that provide common mathematical and numerical routines in pre-compiled, fast functions. These include a wide variety of statistical tests and mathematical distributions, as well as fast matrix calculations.
+
 [Introduction to numpy and scipy](scipy_numpy/README.md)
 
 
