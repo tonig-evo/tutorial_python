@@ -26,14 +26,6 @@ Have a look at [Numpy_Tutorial.pdf](../Numpy_Tutorial.pdf) to familiarise yourse
 
 Data: http://www.scipy-lectures.org/_downloads/brain_size.csv
 
-### Data frames with pandas module
-
-```
-import pandas
-data = pandas.read_csv('examples/brain_size.csv', sep=';', na_values=".")
-data  
-```
-
 ### Create data frames from lists
 
 ```
@@ -41,5 +33,39 @@ import numpy as np
 t = np.linspace(-6, 6, 20)
 sin_t = np.sin(t)
 cos_t = np.cos(t)
+pandas.DataFrame({'t': t, 'sin': sin_t, 'cos': cos_t})
 ```
+### Data frames with pandas module - read in from files
+
+```
+import pandas
+data = pandas.read_csv('examples/brain_size.csv', sep=';', na_values=".")
+data  
+```
+
+### Manipulating data
+
+```
+data.shape    # 40 rows and 8 columns
+data.columns # It has columns
+print(data['Gender'])
+data[data['Gender'] == 'Female']['VIQ'].mean() # simple calculation
+
+# Grouping data
+groupby_gender = data.groupby('Gender')
+for gender, value in groupby_gender['VIQ']:
+    print((gender, value.mean()))
+groupby_gender.mean()
+```
+
+For a quick view on a large dataframe, use its describe method: pandas.DataFrame.describe().
+
+**Questions**
+
+- What is the mean value for VIQ for the full population?
+- How many males/females were included in this study?
+- Hint use ‘tab completion’ to find out the methods that can be called, instead of ‘mean’ in the above example.
+- What is the average value of MRI counts expressed in log units, for males and females?
+
+
 
