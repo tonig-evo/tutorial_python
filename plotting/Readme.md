@@ -1,12 +1,8 @@
 # Plotting in Python
 
-## Use rpy2 to plot (R within python)
+## Statistical software package R with good plotting functions
 
-Rpy2 is a module that allows to include functions of R (a mathematical/statistical programming language) into python. You can use it to draw complex graphics and use mathematical functions that are not included in python, numpy or scipy. You can R code very simply:
-
-- Familiarise yourself with R (just type 'R' in a shell)
-
-R includes a number of datasets that it is convenient to use for examples:
+You can R code very simply.Familiarise yourself with R (just type 'R' in a shell). R includes a number of datasets that it is convenient to use for examples:
 ```
 # load prepared data trees
 data(trees)
@@ -29,7 +25,40 @@ par(mfrow=c(1,1))
 plot(Height,Volume)
 dev.off()
 ```
-Let's use Rpy! (from rpy import *), now you can call any R command by either:
+
+## Rpy2
+Rpy2 is a module that allows to include functions of R (a mathematical/statistical programming language) into python. You can use it to draw complex graphics and use mathematical functions that are not included in python, numpy or scipy.
+Let's use Rpy2! (from rpy import *), now you can call any R command by either:
+
+```
+# Import Rpy2
+import rpy2
+print(rpy2.__version__)
+
+# How to load R packages
+from rpy2.robjects.packages import importr
+# import R's "base" package
+base = importr('base')
+
+# import R's "utils" package
+utils = importr('utils')
+```
+**Note** R object names can contain a ”.” (dot) while in Python the dot means “attribute in a namespace”. Because of this, importr is trying to translate ”.” into “_”. 
+
+```
+import rpy2.robjects as robjects
+
+r = robjects.r
+
+x = robjects.IntVector(range(10))
+y = r.rnorm(10)
+
+r.X11()
+
+r.layout(r.matrix(robjects.IntVector([1,2,3,2]), nrow=2, ncol=2))
+r.plot(r.runif(10), y, xlab="runif", ylab="foo/bar", col="red")
+```
+
 - r('pdf(“graphic1.pdf”)')
 - r.pdf(“graphics.pdf”)
 
