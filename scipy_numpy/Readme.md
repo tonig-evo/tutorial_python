@@ -26,9 +26,9 @@ Also take a look at: http://www.loria.fr/~rougier/teaching/numpy/numpy.html (sol
 
 Data: http://www.scipy-lectures.org/_downloads/brain_size.csv
 
-``
+```
 import pandas
 >>> data = pandas.read_csv('examples/brain_size.csv', sep=';', na_values=".")
 >>> data  
-``
+```
 
