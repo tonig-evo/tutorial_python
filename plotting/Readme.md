@@ -26,7 +26,7 @@ plot(Height,Volume)
 dev.off()
 ```
 
-## Call an rscript within python
+## Option 1: Call an rscript within python
 
 ```
 os.system('Rscript script.R') # this can also contain variables
