@@ -136,3 +136,68 @@ sns.violinplot(x='Type 1', y='Attack', data=df,
 sns.swarmplot(x='Type 1', y='Attack', data=df,
               palette=pkmn_type_colors)
 ```
+
+### Overlay plots
+
+```
+# Set figure size with matplotlib
+plt.figure(figsize=(10,6))
+ 
+# Create plot
+sns.violinplot(x='Type 1',
+               y='Attack',
+               data=df,
+               inner=None, # Remove the bars inside the violins
+               palette=pkmn_type_colors)
+ 
+sns.swarmplot(x='Type 1',
+              y='Attack',
+              data=df,
+              color='k', # Make points black
+              alpha=0.7) # and slightly transparent
+ 
+# Set title with matplotlib
+plt.title('Attack by Type')
+```
+
+### Heatmap of correlations, histograms, bar plots
+
+```
+# Calculate correlations
+corr = stats_df.corr()
+ 
+# Heatmap
+sns.heatmap(corr)
+
+# Distribution Plot (a.k.a. Histogram)
+sns.distplot(df.Attack)
+# Count Plot (a.k.a. Bar Plot)
+sns.countplot(x='Type 1', data=df, palette=pkmn_type_colors)
+ 
+# Rotate x-labels
+plt.xticks(rotation=-45)
+```
+
+### Factor plot, denisty plot, joint distribution plot
+
+```
+# Factor Plot
+g = sns.factorplot(x='Type 1',
+                   y='Attack',
+                   data=df,
+                   hue='Stage',  # Color by stage
+                   col='Stage',  # Separate by stage
+                   kind='swarm') # Swarmplot
+ 
+# Rotate x-axis labels
+g.set_xticklabels(rotation=-45)
+
+# Density Plot
+sns.kdeplot(df.Attack, df.Defense)
+
+# Joint Distribution Plot
+sns.jointplot(x='Attack', y='Defense', data=df)
+```
+
+**Questions**
+- Go to http://seaborn.pydata.org/examples/ and plot 3 self chosen examples
