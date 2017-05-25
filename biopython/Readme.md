@@ -110,5 +110,8 @@ records[0]["Lineage"]
 # Liliopsida; Asparagales; Orchidaceae'
 ```
 
+**Questions**
+- Obtain the taxonomy for the three model organisms: *Homo sapiens*, *Arabidopsis thaliana* and *Drosophila melanogaster*
+
 
 
