@@ -20,3 +20,11 @@ http://mycor.nancy.inra.fr/egglib/releases/3.0.0b13/egglib-3.0.0b13.tar.gz
 import egglib
 print egglib.version
 ```
+
+## Load an alignment
+
+```
+import egglib
+aln = egglib.io.from_fasta('align1.fas')
+print aln.ns, aln.ls
+```
