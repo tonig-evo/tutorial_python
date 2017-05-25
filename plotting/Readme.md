@@ -26,6 +26,12 @@ plot(Height,Volume)
 dev.off()
 ```
 
+## Call an rscript within python
+
+```
+os.system('Rscript script.R') # this can also contain variables
+```
+
 ## Rpy2
 Rpy2 is a module that allows to include functions of R (a mathematical/statistical programming language) into python. You can use it to draw complex graphics and use mathematical functions that are not included in python, numpy or scipy.
 Let's use Rpy2! (from rpy import *), now you can call any R command by either:
@@ -64,6 +70,26 @@ r.plot(r.runif(10), y, xlab="runif", ylab="foo/bar", col="red")
 
 to assign a variable from python to R
 r.assign('variable_inR',variable_in_python)
+
+## Example plot with Rpy2
+
+```
+import math, datetime
+import rpy2.robjects.lib.ggplot2 as ggplot2
+import rpy2.robjects as ro
+from rpy2.robjects.packages import importr
+base = importr('base')
+datasets = importr('datasets')
+
+
+mtcars = datasets.data.fetch('mtcars')['mtcars']
+pp = ggplot2.ggplot(mtcars) + \
+     ggplot2.aes_string(x='wt', y='mpg', col='factor(cyl)') + \
+     ggplot2.geom_point() + \
+     ggplot2.geom_smooth(ggplot2.aes_string(group = 'cyl'),
+                         method = 'lm')
+pp.plot()
+```
 
 **Questions**
 
