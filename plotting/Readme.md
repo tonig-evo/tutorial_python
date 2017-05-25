@@ -1,6 +1,6 @@
 # Plotting in Python
 
-## Statistical software package R with good plotting functions
+## Statistical software package R has sophisticated plotting functions
 
 You can R code very simply.Familiarise yourself with R (just type 'R' in a shell). R includes a number of datasets that it is convenient to use for examples:
 ```
