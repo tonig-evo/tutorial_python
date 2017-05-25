@@ -24,8 +24,6 @@ Have a look at [Numpy_Tutorial.pdf](../Numpy_Tutorial.pdf) to familiarise yourse
 
 ## How to get data into python
 
-Data: http://www.scipy-lectures.org/_downloads/brain_size.csv
-
 ### Create data frames from lists
 
 ```
@@ -36,6 +34,8 @@ cos_t = np.cos(t)
 pandas.DataFrame({'t': t, 'sin': sin_t, 'cos': cos_t})
 ```
 ### Data frames with pandas module - read in from files
+
+Data: http://www.scipy-lectures.org/_downloads/brain_size.csv
 
 ```
 import pandas
@@ -67,5 +67,26 @@ For a quick view on a large dataframe, use its describe method: pandas.DataFrame
 - Hint use ‘tab completion’ to find out the methods that can be called, instead of ‘mean’ in the above example.
 - What is the average value of MRI counts expressed in log units, for males and females?
 
+### Hypothesis testing
+
+There are numerous statistics and statisctical tests implemented in Scipy. Take a look at https://docs.scipy.org/doc/scipy/reference/stats.html
+
+```
+from scipy import stats
+
+# 1-sample t-test: testing the value of a population mean
+stats.ttest_1samp(data['VIQ'], 0) 
+
+# 2-sample t-test: testing for difference across populations
+female_viq = data[data['Gender'] == 'Female']['VIQ']
+male_viq = data[data['Gender'] == 'Male']['VIQ']
+stats.ttest_ind(female_viq, male_viq)
+
+# Paired t-test
+stats.ttest_rel(data['FSIQ'], data['PIQ'])
+
+# Wilcoxon signed-rank test
+stats.wilcoxon(data['FSIQ'], data['PIQ']) 
+```
 
 
