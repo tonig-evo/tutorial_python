@@ -48,3 +48,20 @@ Look at http://www.harding.edu/fmccown/r/ , you will find simple plots and the c
     5. Dotchart (use percentage as labels)
 
 ## Use seaplot to plot
+
+Seaborn provides a high-level interface to Matplotlib (a plotting environment for Python), a powerful but sometimes unwieldy Python visualization library.
+
+Data: https://elitedatascience.com/wp-content/uploads/2017/04/Pokemon.csv
+
+Preparation: Import the libraries with an alias. Later, you can invoke Pandas with pd, Matplotlib with plt, and Seaborn with sns
+```
+# Pandas for managing datasets
+import pandas as pd
+# Matplotlib for additional customization
+from matplotlib import pyplot as plt
+%matplotlib inline
+# Seaborn for plotting and styling
+import seaborn as sns
+```
+
+
