@@ -113,9 +113,52 @@ records[0]["Lineage"]
 **Questions**
 - Obtain the taxonomy for the three model organisms: *Homo sapiens*, *Arabidopsis thaliana* and *Drosophila melanogaster*
 
+## Fetching sequences from NCBI via Entrez
+
+```
+from Bio import Entrez, SeqIO
+handle = Entrez.efetch(db="nucleotide", id="EU490707", rettype="gb", retmode="text")
+record = SeqIO.read(handle, "genbank")
+handle.close()
+print(record)
+```
+**Questions**
+- Download the first ever sequence entered into NCBI
+
+## Work with phylogenetic trees
+
+Bio.Phylo is described in an open-access journal article [Talevich et al., 2012], which you might also find helpful.
+
+Data: https://raw.githubusercontent.com/biopython/biopython/master/Doc/examples/simple.dnd
+
+```
+from Bio import Phylo
+tree = Phylo.read("simple.dnd", "newick")
+
+# Output
+print(tree)
+Phylo.draw_ascii(tree)
+
+# with pylab or matplotlib
+tree.rooted = True
+Phylo.draw(tree)
+```
+Modify the tree output
+
+```
+# In Biopython 1.55 and later, this is a convenient tree method:
+tree = tree.as_phyloxml()
+tree.root.color = "gray"
+mrca = tree.common_ancestor({"name": "E"}, {"name": "F"})
+mrca.color = "salmon"
+tree.clade[0, 1].color = "blue"
+Phylo.draw(tree)
+```
+
 # More information
 
-An exhaustive tutorial can be found at http://biopython.org/DIST/docs/tutorial/Tutorial.html
+- Phylogenetic trees: http://biopython.org/wiki/Phylo_cookbook
+- An exhaustive tutorial can be found at http://biopython.org/DIST/docs/tutorial/Tutorial.html
 
 
 
