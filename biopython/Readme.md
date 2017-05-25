@@ -113,5 +113,9 @@ records[0]["Lineage"]
 **Questions**
 - Obtain the taxonomy for the three model organisms: *Homo sapiens*, *Arabidopsis thaliana* and *Drosophila melanogaster*
 
+# More information
+
+An exhaustive tutorial can be found at http://biopython.org/DIST/docs/tutorial/Tutorial.html
+
 
 
