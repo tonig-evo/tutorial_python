@@ -89,4 +89,41 @@ stats.ttest_rel(data['FSIQ'], data['PIQ'])
 stats.wilcoxon(data['FSIQ'], data['PIQ']) 
 ```
 
+**Questions **
+
+- Test the difference between weights in males and females.
+- Use non parametric statistics to test the difference between VIQ in males and females.
+
+### Statsmodels
+
+http://www.statsmodels.org/stable/example_formulas.html
+
+Create an example data
+```
+import numpy as np
+x = np.linspace(-5, 5, 20)
+np.random.seed(1)
+# normal distributed noise
+y = -5 + 3*x + 4 * np.random.normal(size=x.shape)
+# Create a data frame containing all the relevant variables
+data = pandas.DataFrame({'x': x, 'y': y})
+
+```
+
+Run the statistical model
+
+```
+from statsmodels.formula.api import ols
+model = ols("y ~ x", data).fit()
+print(model.summary()) 
+```
+
+** Question **
+- Retrieve the estimated parameters from the model above.
+- What does following statistical model test and what is the outcome?
+```
+data = pandas.read_csv('examples/brain_size.csv', sep=';', na_values=".")
+model = ols("VIQ ~ Gender + 1", data).fit()
+print(model.summary())
+```
 
