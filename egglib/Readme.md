@@ -30,3 +30,33 @@ import egglib
 aln = egglib.io.from_fasta('codon.aln')
 print aln.ns, aln.ls
 ```
+
+### Group labels (e.g. subpopulations)
+
+Need to be labeled in the Fasta file
+
+```
+>sample1 @1
+ACCGTGGAGAGCGCGTTGCA
+>sample2 @1
+ACCGTGGAGAGCGCGTTGCA
+>sample3 @1
+ACCGTGGAGAGCGCGTTGCA
+>sample4 @2
+ACCGTGGAGAGCGCGTTGCA
+>sample5 @2
+ACCGTGGAGAGCGCGTTGCA
+>sample6 @2
+ACCGTGGAGAGCGCGTTGCA
+>outgroup @#
+ACCGTGGAGAGCGCGTTGCA
+```
+
+## Population genetic parameters
+
+```
+aln1 = egglib.io.from_fasta('codon.aln', cls=egglib.Align, groups=True)
+cs = egglib.stats.ComputeStats()
+cs.add_stats('S', 'thetaW', 'Pi', 'D', 'lseff', 'nseff')
+stats = cs.process_align(aln1)
+```
