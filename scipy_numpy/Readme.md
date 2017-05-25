@@ -89,7 +89,7 @@ stats.ttest_rel(data['FSIQ'], data['PIQ'])
 stats.wilcoxon(data['FSIQ'], data['PIQ']) 
 ```
 
-**Questions **
+**Questions**
 
 - Test the difference between weights in males and females.
 - Use non parametric statistics to test the difference between VIQ in males and females.
@@ -118,7 +118,8 @@ model = ols("y ~ x", data).fit()
 print(model.summary()) 
 ```
 
-** Question **
+**Questions**
+
 - Retrieve the estimated parameters from the model above.
 - What does following statistical model test and what is the outcome?
 ```
