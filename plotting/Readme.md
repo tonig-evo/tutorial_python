@@ -51,7 +51,7 @@ Look at http://www.harding.edu/fmccown/r/ , you will find simple plots and the c
 
 Seaborn provides a high-level interface to Matplotlib (a plotting environment for Python), a powerful but sometimes unwieldy Python visualization library.
 
-Data: https://elitedatascience.com/wp-content/uploads/2017/04/Pokemon.csv
+### Loading necessary libraries
 
 Preparation: Import the libraries with an alias. Later, you can invoke Pandas with pd, Matplotlib with plt, and Seaborn with sns
 ```
@@ -64,4 +64,42 @@ from matplotlib import pyplot as plt
 import seaborn as sns
 ```
 
+### Read dataset
+```
+df = pd.read_csv('Pokemon.csv', index_col=0)
+# Display first 5 observations
+df.head()
+```
 
+### Scatterplots
+```
+# Recommended way
+sns.lmplot(x='Attack', y='Defense', data=df)
+# More fancy
+# Scatterplot arguments
+sns.lmplot(x='Attack', y='Defense', data=df,
+           fit_reg=False, # No regression line
+           hue='Stage')   # Color by evolution stage
+# Some tweaks
+# Plot using Seaborn
+sns.lmplot(x='Attack', y='Defense', data=df,
+           fit_reg=False,
+           hue='Stage')
+ 
+# Tweak using Matplotlib
+plt.ylim(0, None)
+plt.xlim(0, None)
+```
+
+### Box plots
+
+```
+# Boxplot
+sns.boxplot(data=df)
+
+# Pre-format DataFrame
+stats_df = df.drop(['Total', 'Stage', 'Legendary'], axis=1)
+ 
+# New boxplot using stats_df
+sns.boxplot(data=stats_df)
+```
