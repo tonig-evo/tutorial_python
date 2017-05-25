@@ -30,8 +30,7 @@ Info: http://biopython.org/DIST/docs/api/Bio.pairwise2-module.html
 
 The names of the alignment functions in this module follow the convention <alignment type>XX where <alignment type> is either "global" or "local" and XX is a 2 character code indicating the parameters it takes. The first character indicates the parameters for matches (and mismatches), and the second indicates the parameters for gap penalties.
 
-Data: https://raw.githubusercontent.com/biopython/biopython/master/Doc/examples/opuntia.fasta
-
+Data are two single entry fasta files containing 2 human hemoglobin sequences: (alpha.faa) and (beta.faa)
 
 ```
 from Bio import pairwise2
@@ -47,3 +46,23 @@ len(alignments)
 print(alignments[0])
 ```
 
+**Questions**
+- What is the difference between a local and a global alignment
+- Conduct a local alignment with no gap open penalty
+- What are the alignment parameters for the follwoing code?
+
+```
+from Bio import pairwise2
+from Bio import SeqIO
+from Bio.SubsMat.MatrixInfo import blosum62
+seq1 = SeqIO.read("alpha.faa", "fasta")
+seq2 = SeqIO.read("beta.faa", "fasta")
+alignments = pairwise2.align.globalds(seq1.seq, seq2.seq, blosum62, -10, -0.5)
+len(alignments)
+print(pairwise2.format_alignment(*alignments[0]))
+```
+
+## Multiple Alignments
+
+
+Data: https://raw.githubusercontent.com/biopython/biopython/master/Doc/examples/opuntia.fasta
