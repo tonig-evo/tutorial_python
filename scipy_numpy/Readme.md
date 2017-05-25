@@ -1,8 +1,10 @@
-## Numpy and Scipy
+# Numpy and Scipy
 
 NumPy and SciPy are open-source add-on modules to Python that provide common mathematical and numerical routines in pre-compiled, fast functions. Have a look at [Numpy_Tutorial.pdf](../Numpy_Tutorial.pdf) to familiarise yourself with the two modules.
 
 Also take a look at: http://www.loria.fr/~rougier/teaching/numpy/numpy.html (solutions to questions marked with an asterisk are hidden on the website)
+
+## Arrays
 
 **Questions**
 
@@ -19,3 +21,14 @@ Also take a look at: http://www.loria.fr/~rougier/teaching/numpy/numpy.html (sol
 - Multiply a 5x3 matrix by a 3x2 matrix (real matrix product) *
 - Create a random vector of size 1000 and find the mean value *
 - Create two numpy arrays and apply following correlation functions: Pearson r, Spearman rho, Kendall tau
+
+## Data Representation
+
+Data: http://www.scipy-lectures.org/_downloads/brain_size.csv
+
+``
+import pandas
+>>> data = pandas.read_csv('examples/brain_size.csv', sep=';', na_values=".")
+>>> data  
+``
+
