@@ -59,4 +59,10 @@ aln1 = egglib.io.from_fasta('codon.aln', cls=egglib.Align, groups=True)
 cs = egglib.stats.ComputeStats()
 cs.add_stats('S', 'thetaW', 'Pi', 'D', 'lseff', 'nseff')
 stats = cs.process_align(aln1)
+
+# output
+print aln1.ns, aln1.ls
+print stats
 ```
+
+A list of the available statistics can be found here: http://mycor.nancy.inra.fr/egglib/py/stats.html#list-stats
