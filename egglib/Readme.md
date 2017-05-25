@@ -57,6 +57,9 @@ ACCGTGGAGAGCGCGTTGCA
 ```
 aln1 = egglib.io.from_fasta('codon.aln', cls=egglib.Align, groups=True)
 cs = egglib.stats.ComputeStats()
+
+# Choose what statistic you want to use
+
 cs.add_stats('S', 'thetaW', 'Pi', 'D', 'lseff', 'nseff')
 stats = cs.process_align(aln1)
 
