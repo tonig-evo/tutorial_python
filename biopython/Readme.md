@@ -1,6 +1,8 @@
 # Biopython tutorial
 
-Please look at [Biopython_Intro.pdf](../Biopython_Intro.pdf) to answer the following questions.
+## Sequence handling
+
+Please look at [Biopython_Intro.pdf](../Biopython_Intro.pdf) to answer the following questions for sequence handling.
 
 **Questions**
 
@@ -19,3 +21,29 @@ Please look at [Biopython_Intro.pdf](../Biopython_Intro.pdf) to answer the follo
     5) Transcribe the reverse complement
     6) Translate the sequence using the Standard code
 - What is the difference between Seq and MutableSeq?
+
+## Simple global and local alignments
+
+The module pairwise2 
+
+Info: http://biopython.org/DIST/docs/api/Bio.pairwise2-module.html
+
+The names of the alignment functions in this module follow the convention <alignment type>XX where <alignment type> is either "global" or "local" and XX is a 2 character code indicating the parameters it takes. The first character indicates the parameters for matches (and mismatches), and the second indicates the parameters for gap penalties.
+
+Data: https://raw.githubusercontent.com/biopython/biopython/master/Doc/examples/opuntia.fasta
+
+
+```
+from Bio import pairwise2
+from Bio import SeqIO
+seq1 = SeqIO.read("alpha.faa", "fasta")
+seq2 = SeqIO.read("beta.faa", "fasta")
+alignments = pairwise2.align.globalxx(seq1.seq, seq2.seq)
+
+# How many best alignments exist
+len(alignments)
+
+# First alignment
+print(alignments[0])
+```
+
