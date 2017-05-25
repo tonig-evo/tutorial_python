@@ -24,7 +24,7 @@ Please look at [Biopython_Intro.pdf](../Biopython_Intro.pdf) to answer the follo
 
 ## Simple global and local alignments
 
-The module pairwise2 
+The module pairwise2 implements pairwise sequence alignment using a dynamic programming algorithm
 
 Info: http://biopython.org/DIST/docs/api/Bio.pairwise2-module.html
 
@@ -62,7 +62,21 @@ len(alignments)
 print(pairwise2.format_alignment(*alignments[0]))
 ```
 
-## Multiple Alignments
-
+## Multiple Sequence objects
 
 Data: https://raw.githubusercontent.com/biopython/biopython/master/Doc/examples/opuntia.fasta
+
+```
+from Bio import SeqIO
+opuntia_dict = SeqIO.index("opuntia.fasta", "fasta")
+for x in opuntia_dict:
+    print x # sequence identifier/key
+    print opuntia_dict[x]
+    print str(opuntia_dict[x].seq) # sequence as string
+    print opuntia_dict[x].description # full header
+```
+
+**Questions**
+- What sequence has the highest GC content (Count the GC content for each sequence - percentage of G and C nucleotides in the sequence)?
+- What sequence contains the sequence stretch "ATATTCATATTCAATTAAAATTGAA"?
+
