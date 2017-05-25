@@ -125,7 +125,7 @@ NumPy and SciPy are open-source add-on modules to Python that provide common mat
 
 Biopython is a set of freely available tools for biological computation, especially sequence handling. Biopython is a collection of modules for computational molecular biology, which allows performing most of the basic (and in many cases also advanced) tasks required in a bioinformatics project.
 
-[Introduction to Biopython](Biopython/Readme.md)
+[Introduction to Biopython](biopython/Readme.md)
 
 ## 8. Plotting with seaborn or ggplot2 (through R)
 
