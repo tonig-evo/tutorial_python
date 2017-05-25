@@ -1,6 +1,6 @@
 # Biopython tutorial
 
-Please look at [Biopython_Intro.pdf](Biopython_Intro.pdf) to answer the following questions.
+Please look at [Biopython_Intro.pdf](../Biopython_Intro.pdf) to answer the following questions.
 
 **Questions**
 
