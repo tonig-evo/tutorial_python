@@ -129,9 +129,13 @@ Biopython is a set of freely available tools for biological computation, especia
 
 ## 8. Plotting with seaborn or ggplot2 (through R)
 
-### 8.1 Plot with R functions
+Data visualisation is an important aspect of scientific work. Two powerful approaches are introduced here
 
-### 8.2 Plot with seaborn
+1. Plot in python with R functions
+2. Plot with seaborn
+
+[Introduction to Plotting](plotting/Readme.md)
+
 
 ## 9. Egglib
 
