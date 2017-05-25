@@ -1,5 +1,7 @@
 # Plotting in Python
 
+## Use rpy2 to plot (R within python)
+
 Rpy2 is a module that allows to include functions of R (a mathematical/statistical programming language) into python. You can use it to draw complex graphics and use mathematical functions that are not included in python, numpy or scipy. You can R code very simply:
 
 - Familiarise yourself with R (just type 'R' in a shell)
@@ -44,3 +46,5 @@ Look at http://www.harding.edu/fmccown/r/ , you will find simple plots and the c
     3. Histogram (use a lognormal distribution)
     4. Pie Chart (add a title) 
     5. Dotchart (use percentage as labels)
+
+## Use seaplot to plot
