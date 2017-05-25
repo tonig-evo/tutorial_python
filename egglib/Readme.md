@@ -23,8 +23,10 @@ print egglib.version
 
 ## Load an alignment
 
+The file [codon.aln](codon.aln) contains codon alignments for a gene transcript from Drosophila melanogaster from 28 different Drosophila individuals. Copy the file in your current working directory.
+
 ```
 import egglib
-aln = egglib.io.from_fasta('align1.fas')
+aln = egglib.io.from_fasta('codon.aln')
 print aln.ns, aln.ls
 ```
