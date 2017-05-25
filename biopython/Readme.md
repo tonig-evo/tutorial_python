@@ -80,3 +80,35 @@ for x in opuntia_dict:
 - What sequence has the highest GC content (Count the GC content for each sequence - percentage of G and C nucleotides in the sequence)?
 - What sequence contains the sequence stretch "ATATTCATATTCAATTAAAATTGAA"?
 
+## Finding the taxonomy
+
+```
+from Bio import Entrez
+Entrez.email = "A.N.Other@example.com"     # Your Email
+handle = Entrez.esearch(db="Taxonomy", term="Cypripedioideae") # species of interest
+record = Entrez.read(handle)
+record["IdList"]
+entry=record["IdList"][0]
+
+# Check the entry in the taxonomy database Taxonomy database, and then parse it:
+
+handle = Entrez.efetch(db="Taxonomy", id=entry, retmode="xml")
+records = Entrez.read(handle)
+
+# This record stores lots of information:
+
+records[0].keys()
+# [u'Lineage', u'Division', u'ParentTaxId', u'PubDate', u'LineageEx',
+#  u'CreateDate', u'TaxId', u'Rank', u'GeneticCode', u'ScientificName',
+# u'MitoGeneticCode', u'UpdateDate']
+
+#We can get the lineage directly from this record:
+
+records[0]["Lineage"]
+#'cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina;
+# Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliophyta;
+# Liliopsida; Asparagales; Orchidaceae'
+```
+
+
+
