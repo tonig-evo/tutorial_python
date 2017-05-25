@@ -1,10 +1,10 @@
 # Numpy and Scipy
 
-NumPy and SciPy are open-source add-on modules to Python that provide common mathematical and numerical routines in pre-compiled, fast functions. Have a look at [Numpy_Tutorial.pdf](../Numpy_Tutorial.pdf) to familiarise yourself with the two modules.
-
-Also take a look at: http://www.loria.fr/~rougier/teaching/numpy/numpy.html (solutions to questions marked with an asterisk are hidden on the website)
+NumPy and SciPy are open-source add-on modules to Python that provide common mathematical and numerical routines in pre-compiled, fast functions. 
 
 ## Arrays
+
+Have a look at [Numpy_Tutorial.pdf](../Numpy_Tutorial.pdf) to familiarise yourself with arrays. Also take a look at: http://www.loria.fr/~rougier/teaching/numpy/numpy.html (solutions to questions marked with an asterisk are hidden on the website)
 
 **Questions**
 
@@ -22,13 +22,24 @@ Also take a look at: http://www.loria.fr/~rougier/teaching/numpy/numpy.html (sol
 - Create a random vector of size 1000 and find the mean value *
 - Create two numpy arrays and apply following correlation functions: Pearson r, Spearman rho, Kendall tau
 
-## Data Representation
+## How to get data into python
 
 Data: http://www.scipy-lectures.org/_downloads/brain_size.csv
 
+### Data frames with pandas module
+
 ```
 import pandas
->>> data = pandas.read_csv('examples/brain_size.csv', sep=';', na_values=".")
->>> data  
+data = pandas.read_csv('examples/brain_size.csv', sep=';', na_values=".")
+data  
+```
+
+### Create data frames from lists
+
+```
+import numpy as np
+t = np.linspace(-6, 6, 20)
+sin_t = np.sin(t)
+cos_t = np.cos(t)
 ```
 
