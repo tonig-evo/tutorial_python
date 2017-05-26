@@ -1,6 +1,6 @@
 # Python tutorial
 
-This tutorial is aimed to get familiar with the programming language Python. The file [learnpython.py](learnpython.py) contains five sections introducing basic principles of the programming language. For each section there are a number of questions, please answer the questions of each section in a separate script. As a little guide to start, please read the instructions for code annotations [How_to_document_code.pdf](How_to_document_code.pdf). 
+This tutorial is aimed to get familiar with the programming language Python. 
 
 ## 0. Setup
 
@@ -24,6 +24,10 @@ source activate aps_course
 todo still needs modules adding
 
 Once this is done you can return to "Iceberg Applications" menu and click on "gedit" which will open the text editor that you will use to write your scripts.
+
+## 1. Python fundamentals
+
+The file [learnpython.py](learnpython.py) contains five sections introducing basic principles of the programming language. For each section there are a number of questions, please answer the questions of each section in a separate script. As a little guide to start, please read the instructions for code annotations [How_to_document_code.pdf](How_to_document_code.pdf). 
 
 ## 1a. Primitive Datatypes and Operators
 
