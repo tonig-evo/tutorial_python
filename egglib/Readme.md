@@ -33,25 +33,37 @@ aln = egglib.io.from_fasta('codon.aln')
 print aln.ns, aln.ls
 ```
 
-### Group labels (e.g. subpopulations)
+### Group labels (e.g. subpopulations or outgroups)
 
 Need to be labeled in the Fasta file, e.g.
 
 ```
->sample1 @1
-ACCGTGGAGAGCGCGTTGCA
->sample2 @1
-ACCGTGGAGAGCGCGTTGCA
->sample3 @1
-ACCGTGGAGAGCGCGTTGCA
->sample4 @2
-ACCGTGGAGAGCGCGTTGCA
->sample5 @2
-ACCGTGGAGAGCGCGTTGCA
->sample6 @2
-ACCGTGGAGAGCGCGTTGCA
->outgroup @#
-ACCGTGGAGAGCGCGTTGCA
+>name1@1,1
+AGGTGGCGTGC
+>name2@1,2
+AGCAGGGGAGC
+>name3@2,3
+TGGAGGGGTGC
+>name4@#4
+AGCAGGGGTAC
+>name5@#5
+AGCAGGGGAAC
+```
+
+Information based on this labelling can be accessed as follows:
+```
+aln = egglib.io.from_fasta("align.fas",groups=True)
+for sam in aln:
+  #sam  SampleView
+  sam.name # str
+  sam.sequence # SequenceView
+  sam.sequence.str() # str
+  sam.sequence[i] # int
+  sam.sequence[i:j] # list
+  sam.sequence = "ACGGTGCATTC"
+  sam.group #→ GroupView
+  sam.group[i] #↔ int
+  sam.group = 5
 ```
 
 ## Population genetic parameters
