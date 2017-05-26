@@ -21,7 +21,7 @@
 35 / 5  # => 7
 
 # Division is a bit tricky. It is integer division and floors the results
-# automatically.
+# automatically in Python 2.x. In Python 3 "/" is a "real" division.
 5 / 2  # => 2
 
 # To fix division we need to learn about floats.
@@ -38,7 +38,7 @@
 # Enforce precedence with parentheses
 (1 + 3) * 2  # => 8
 
-# Boolean values are primitives
+# Boolean values are primitives (remember to capitalise!)
 True
 False
 
@@ -74,8 +74,8 @@ not False  # => True
 # A string can be treated like a list of characters
 "This is a string"[0]  # => 'T'
 
-# % can be used to format strings, like this:
-"%s can be %s" % ("strings", "interpolated")
+# % can be used to format strings, like this: ##!!## REMOVE??
+"%s can be %s" % ("strings", "interpolated")  ##!!## REMOVE??
 
 # A newer way to format strings is the format method.
 # This method is the preferred way
@@ -86,10 +86,12 @@ not False  # => True
 # None is an object
 None  # => None
 
-# Don't use the equality "==" symbol to compare objects to None
+# Don't use the equality "==" symbol to compare objects to None.
+# "None == anything" will always yield False
 # Use "is" instead
 "etc" is None  # => False
 None is None  # => True
+None == None  # => False
 
 # The 'is' operator tests for object identity. This isn't
 # very useful when dealing with primitive values, but is
@@ -106,9 +108,9 @@ bool("")  # => False
 ####################################################
 
 # Python has a print function, available in versions 2.7 and 3...
-print("I'm Python. Nice to meet you!")
+print("I'm Python 2.7 or 3. Nice to meet you!")
 # and an older print statement, in all 2.x versions but removed from 3.
-print "I'm also Python!"
+print "I'm also Python, but only version 2.x!"
 
 
 # No need to declare variables before assigning to them.
@@ -117,10 +119,10 @@ some_var  # => 5
 
 # Accessing a previously unassigned variable is an exception.
 # See Control Flow to learn more about exception handling.
-some_other_var  # Raises a name error
+some_other_var  # Raises a NameError
 
 # if can be used as an expression
-"yahoo!" if 3 > 2 else 2  # => "yahoo!"
+"yahoo!" if 3 > 2 else 2  # => "yahoo!" ##!!## shall this maybe go to some later stage? Its rather complicated.
 
 # Lists store sequences
 li = []
@@ -149,9 +151,11 @@ li[4]  # Raises an IndexError
 # (It's a closed/open range for you mathy types.)
 li[1:3]  # => [2, 4]
 # Omit the beginning
+li[1:]  # => [2, 4, 3]
 li[2:]  # => [4, 3]
 # Omit the end
 li[:3]  # => [1, 2, 4]
+li[:-1]  # => [1, 2, 4]
 # Select every second entry
 li[::2]   # =>[1, 4]
 # Revert the list
@@ -192,6 +196,8 @@ a, b, c = (1, 2, 3)     # a is now 1, b is now 2 and c is now 3
 d, e, f = 4, 5, 6
 # Now look how easy it is to swap two values
 e, d = d, e     # d is now 5 and e is now 4
+# The number of elements to unpack must fit
+a, b, c = (1, 2, 3, 4)   # - raises a ValueError
 
 
 # Dictionaries store mappings
@@ -239,7 +245,8 @@ some_set = set([1, 2, 2, 3, 4])   # some_set is now set([1, 2, 3, 4])
 filled_set = {1, 2, 2, 3, 4}   # => {1, 2, 3, 4}
 
 # Add more items to a set
-filled_set.add(5)   # filled_set is now {1, 2, 3, 4, 5}
+filled_set.add(5)   # filled_set is now {2, 5, 1, 4, 3}
+# Note - as dictionary keys, sets have no guaranteed ordering!
 
 # Do set intersection with &
 other_set = {3, 4, 5, 6}
@@ -264,11 +271,11 @@ filled_set | other_set   # => {1, 2, 3, 4, 5, 6}
 some_var = 5
 
 # Here is an if statement. Indentation is significant in python!
-# prints "some_var is smaller than 10"
+# prints "some_var is less than 10"
 if some_var > 10:
     print("some_var is totally bigger than 10.")
 elif some_var < 10:    # This elif clause is optional.
-    print("some_var is smaller than 10.")
+    print("some_var is less than 10.")
 else:           # This is optional too.
     print("some_var is indeed 10.")
 
@@ -281,12 +288,13 @@ prints:
     mouse is a mammal
 """
 for animal in ["dog", "cat", "mouse"]:
-    # You can use % to interpolate formatted strings
-    print("%s is a mammal" % animal)
+    # You can use {} and format() to interpolate formatted strings
+    print("{0} is a mammal".format(animal))
 
 """
-"range(number)" returns a list of numbers
-from zero to the given number
+"range(number)" returns a list of numbers in Python 2.x. In Python 3, range(number) returns
+a special generator. To turn it into a list, use list(range(number))
+The list will contain numbers from zero to one less than the given number
 prints:
     0
     1
@@ -294,6 +302,16 @@ prints:
     3
 """
 for i in range(4):
+    print(i)
+
+"""
+As slicing (see above), range may take start, end, step.
+prints:
+    3
+    5
+    7
+"""
+for i in range(3, 9, 2):
     print(i)
 
 """
@@ -315,7 +333,7 @@ while x < 4:
 try:
     # Use "raise" to raise an error
     raise IndexError("This is an index error")
-except IndexError as e:
+except IndexError:
     pass    # Pass is just a no-op. Usually you would do recovery here.
 
 
@@ -325,7 +343,7 @@ except IndexError as e:
 
 # Use "def" to create new functions
 def add(x, y):
-    print("x is %s and y is %s" % (x, y))
+    print("x is {0} and y is {1}".format(x, y))
     return x + y    # Return values with a return statement
 
 # Calling functions with parameters
@@ -385,7 +403,9 @@ def setGlobalX(num):
     print (x) # => 6
 
 setX(43)
+print(x) # => 5
 setGlobalX(6)
+print(x) # => 6
 
 ####################################################
 ## 5. Modules
@@ -403,6 +423,8 @@ print(floor(3.7))   # => 3.0
 # You can import all functions from a module.
 # Warning: this is not recommended
 from math import *
+# Really, don't do this except for quick and dirty testing!!
+# And even then, don't do it!
 
 # You can shorten module names
 import math as m
