@@ -8,8 +8,8 @@ http://mycor.nancy.inra.fr/egglib/
 
 ## Installation
 
-Instructions: http://mycor.nancy.inra.fr/egglib/install.html
-Installation file: http://mycor.nancy.inra.fr/egglib/releases/3.0.0b13/egglib-3.0.0b13.tar.gz
+- Instructions: http://mycor.nancy.inra.fr/egglib/install.html
+- Installation file: http://mycor.nancy.inra.fr/egglib/releases/3.0.0b13/egglib-3.0.0b13.tar.gz
 
 ## Importing egglib
 
