@@ -72,6 +72,10 @@ print stats
 
 A list of the available statistics can be found here: http://mycor.nancy.inra.fr/egglib/py/stats.html#list-stats
 
+## Using VCF Files
+
+http://mycor.nancy.inra.fr/egglib/manual/stats-4.html
+
 ## Coalescent simulations
 
 http://mycor.nancy.inra.fr/egglib/manual/coal.html
