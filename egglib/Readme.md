@@ -4,6 +4,8 @@ EggLib is a C++/Python library and program package for evolutionary genetics and
 
 Citation: De Mita S. and M. Siol. 2012. EggLib: processing, analysis and simulation tools for population genetics and genomics. BMC Genet. 13:27.
 
+http://mycor.nancy.inra.fr/egglib/
+
 ## Installation
 
 ### Instructions
@@ -33,7 +35,7 @@ print aln.ns, aln.ls
 
 ### Group labels (e.g. subpopulations)
 
-Need to be labeled in the Fasta file
+Need to be labeled in the Fasta file, e.g.
 
 ```
 >sample1 @1
@@ -69,3 +71,7 @@ print stats
 ```
 
 A list of the available statistics can be found here: http://mycor.nancy.inra.fr/egglib/py/stats.html#list-stats
+
+## Coalescent simulations
+
+http://mycor.nancy.inra.fr/egglib/manual/coal.html
