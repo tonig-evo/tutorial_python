@@ -141,7 +141,7 @@ Data visualisation is an important aspect of scientific work. Two powerful appro
 
 EggLib is a C++/Python library and program package for evolutionary genetics and genomics. Main features are sequence data management, sequence polymorphism analysis, and coalescent simulations. EggLib is a flexible Python module with a performant underlying C++ library and allows fast and intuitive development of Python programs and scripts.
 
-[Introduction to Egglib](Egglib/Readme.md)
+[Introduction to Egglib](egglib/Readme.md)
 
 
 
