@@ -93,7 +93,7 @@ The file [learnpython.py](learnpython.py) contains five sections introducing bas
 **Questions**
 
 - How and where to import a module in a python script?
-- Check if following modules are installed on your computer and import them: scipy, numpy, rpy, math
+- Check if following modules are installed on your computer and import them: scipy, numpy, rpy2, math
 - How can you check what functions and attributes are included in a module?
 - Create your own module with two functions and import it to a separate script to run the functions.
 
