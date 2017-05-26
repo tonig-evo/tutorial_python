@@ -42,7 +42,7 @@ Whilst visually these lines look messy they are actually neatly arranged in tab 
 
 The first thing we need to do is make a new python script, and save it in the same directory as this manual.
 
-The we need to open the file in our script and assign it to a variable, as follows:
+Then we need to open the file in our script and assign it to a variable, as follows:
 
 ```python
 vcf_file = open('gt_chrLGE22.vcf', 'r')
@@ -86,7 +86,7 @@ for line in vcf_file:
     if line.startswith('#'):
         continue
     split_line = line.rstrip('\n').split('\t')
-    print split_line
+    print(split_line)
 ```
 
 Run this code and you will see that python is storing our data line in a list, where each element in the list is a column in the vcf:
@@ -117,7 +117,7 @@ for line in vcf_file:
         continue
     
     # process data lines
-    split_line = line.rstrip('\n').split('\t')
+    split_line = line.rstrip().split('\t')
 ```
 
 As we want to identify INDEL sites with a certain length we need to know the length of each INDEL we process. We know that reference allele is in the forth column and the alternate allele is in the fifth column so we can ge the INDEL length with the following code:
@@ -133,15 +133,15 @@ for line in vcf_file:
         continue
     
     # process data lines
-    split_line = line.rstrip('\n').split('\t')
+    split_line = line.rstrip().split('\t')
     ref_allele = split_line[3]
     alt_allele = split_line[4]
     indel_length = len(ref_allele) - len(alt_allele)
     # print statement to check what is going on
-    print ref_allele, alt_allele, indel_length
+    print(ref_allele, alt_allele, indel_length)
 ```
 
-We get the follwoing output from our print statement:
+We get the following output from our print statement:
  
 ```
 AT A 1
@@ -163,7 +163,7 @@ for line in vcf_file:
         continue
     
     # process data lines
-    split_line = line.rstrip('\n').split('\t')
+    split_line = line.rstrip().split('\t')
     ref_allele = split_line[3]
     alt_allele = split_line[4]
     indel_length = abs(len(ref_allele) - len(alt_allele))
@@ -182,7 +182,7 @@ for line in vcf_file:
         continue
     
     # process data lines
-    split_line = line.rstrip('\n').split('\t')
+    split_line = line.rstrip().split('\t')
     ref_allele = split_line[3]
     alt_allele = split_line[4]
     indel_length = abs(len(ref_allele) - len(alt_allele))
@@ -193,7 +193,7 @@ for line in vcf_file:
         start = str(int(split_line[1]) - 1)  # adjust start coordinate to be 0 based for bed file
         end = str(int(split_line[1]) + len(ref_allele))
         output_string = '\t'.join([chromo, start, end])
-        print output_string
+        print(output_string)
 ```
 
 This code outputs the positions of INDELs over 10bp.
@@ -225,7 +225,7 @@ for line in vcf_file:
         continue
     
     # process data lines
-    split_line = line.rstrip('\n').split('\t')
+    split_line = line.rstrip().split('\t')
     ref_allele = split_line[3]
     alt_allele = split_line[4]
     indel_length = abs(len(ref_allele) - len(alt_allele))
@@ -265,7 +265,7 @@ for line in vcf_file:
         continue
     
     # process data lines
-    split_line = line.rstrip('\n').split('\t')
+    split_line = line.rstrip().split('\t')
     ref_allele = split_line[3]
     alt_allele = split_line[4]
     indel_length = abs(len(ref_allele) - len(alt_allele))
