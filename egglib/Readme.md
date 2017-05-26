@@ -27,7 +27,7 @@ print egglib.version
 
 Egglib supports different file formats, most importantly the fasta format. Details how Egglib handles fasta files can be found here: http://mycor.nancy.inra.fr/egglib/py/io.html#fasta-format 
 
-The file [codon.aln](codon.aln) contains codon alignments for a gene transcript from Drosophila melanogaster from 28 different Drosophila individuals. Copy the file in your current working directory.
+The file [codon.aln](codon.aln) contains codon alignments for a gene transcript from Drosophila melanogaster from 28 different Drosophila individuals. Copy the file in your current working directory and try to get basic statistics:
 
 ```
 import egglib
