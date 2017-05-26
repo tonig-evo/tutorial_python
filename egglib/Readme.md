@@ -54,7 +54,7 @@ AGCAGGGGAAC
 
 Information based on this labelling can be accessed as follows:
 ```
-aln = egglib.io.from_fasta("align.fas",groups=True)
+aln = egglib.io.from_fasta("align1.fas",groups=True)
 for sam in aln:
   #sam  SampleView
   sam.name # str
@@ -63,8 +63,8 @@ for sam in aln:
   sam.sequence[i] # int
   sam.sequence[i:j] # list
   sam.sequence = "ACGGTGCATTC"
-  sam.group #→ GroupView
-  sam.group[i] #↔ int
+  sam.group # GroupView
+  sam.group[i] # int
   sam.group = 5
 ```
 
