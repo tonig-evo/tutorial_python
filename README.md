@@ -25,8 +25,6 @@ todo still needs modules adding
 
 Once this is done you can return to "Iceberg Applications" menu and click on "gedit" which will open the text editor that you will use to write your scripts.
 
-## 1 intro section
-
 ## 1a. Primitive Datatypes and Operators
 
 **Questions**
@@ -51,7 +49,7 @@ Once this is done you can return to "Iceberg Applications" menu and click on "ge
 - How do you extract the first letter of a string?
 - How do you extract the second digit of a numeric variable?
 
-## 1b. Variables and Collections simplyfy
+## 1b. Variables and Collections
 
 **Questions**
 
@@ -112,7 +110,7 @@ Follow the link below for this step of the workshop:
 [Pipelines and external programs](pipelines_and_external_programs/README.md)
 
 
-# START OPTIONAL AFTERNOON TUTORIALS HERE
+# OPTIONAL TUTORIALS
 
 ## 6. Numpy and Scipy
 
