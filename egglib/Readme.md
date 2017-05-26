@@ -12,7 +12,7 @@ http://mycor.nancy.inra.fr/egglib/
 
 http://mycor.nancy.inra.fr/egglib/install.html
 
-### File
+### Installation file
 
 http://mycor.nancy.inra.fr/egglib/releases/3.0.0b13/egglib-3.0.0b13.tar.gz
 
@@ -24,6 +24,8 @@ print egglib.version
 ```
 
 ## Load an alignment
+
+Egglib supports different file formats, most importantly the fasta format. Details how Egglib handles fasta files can be found here: http://mycor.nancy.inra.fr/egglib/py/io.html#fasta-format 
 
 The file [codon.aln](codon.aln) contains codon alignments for a gene transcript from Drosophila melanogaster from 28 different Drosophila individuals. Copy the file in your current working directory.
 
