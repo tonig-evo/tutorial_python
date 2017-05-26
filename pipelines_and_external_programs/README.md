@@ -6,7 +6,7 @@ A common use of python when working with big data and complex work flows is to p
  
 There example I will use here will be based on my work on INDELs (again) but the principles are applicable for any pipeline.
  
-So first of in our example we want to run the a modified version of the script we just wrote ```extract_indels_over_10bp.py```, which has only had the file paths changed. Firstly off we need to know the programs commandline and have that as a string.
+So first of in our example we want to run the a modified version of the script we just wrote ```extract_indels_over_10bp.py```, which has only had the file paths changed. Firstly off we need to know the programs commandline and have that as a string. Normally, as this is a Python script, we would just import it. But for the sake of demonstration, we will call the script like we would call any script.
 
 ```python
 script_cmd = 'python extract_indels_over_10bp.py'
@@ -35,7 +35,7 @@ bed_file = 'dmel_indels_over_10bp.bed'
 script_cmd = 'python extract_indels_over_10bp.py'
 subprocess.call(script_cmd, shell=True)
 
-# perform a bedtools interect
+# perform a bedtools intersect
 our_output_vcf = 'dmel_17flys_chr4_indels_over10bp.vcf'
 bedtools_cmd = 'bedtools intersect -header -a ' + vcf_file + ' -b ' + bed_file + ' > ' + our_output_vcf
 subprocess.call(bedtools_cmd, shell=True)
