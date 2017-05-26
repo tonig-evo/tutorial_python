@@ -331,3 +331,197 @@ print 'number of trailing stop codons:', egglib.tools.trailing_stops(aln, frame=
 print 'test for stop codons in alignment:', egglib.tools.has_stop(aln, frame=rf)
 ###
 ```
+## Excercise 2: Population genetics
+```
+import egglib
+
+###
+print '### exercice 2.1.1 ###'
+aln = egglib.io.from_fasta('align1.fas', groups=True)
+###
+
+###
+print '### exercice 2.1.2 ###'
+cs = egglib.stats.ComputeStats()
+cs.add_stat('S')
+cs.add_stat('ls')
+cs.add_stat('ls_o')
+cs.add_stat('thetaW')
+cs.add_stat('Pi')
+cs.add_stat('D')
+cs.add_stat('Hsd')
+###
+
+###
+print '### exercice 2.1.3 ###'
+stats = cs.process_align(aln)
+print stats
+###
+
+###
+print '### exercice 2.1.4 ###'
+print 'analyzed sites:', stats['ls']
+print 'align ls:', aln.ls
+print 'thetaW/site:', stats['thetaW']/stats['ls']
+print 'analyzed orientable sites:', stats['ls_o']
+###
+
+###
+print '### exercice 2.2.1 ###'
+struct = egglib.stats.Structure.make_from_dataset(aln, lvl_pop=0)
+print struct.as_dict()
+###
+
+###
+print '### exercice 2.2.2 ###'
+cs.set_structure(struct)
+cs.add_stat('Dxy')
+cs.add_stat('Snn')
+cs.add_stat('WCst')
+print cs.process_align(aln)
+###
+
+###
+print '### exercice 2.3.1 ###'
+cs.configure(max_missing_freq=0.25)
+###
+
+###
+print '### exercice 2.3.2 ###'
+cs.set_structure(struct)
+cs.add_stat('S')
+cs.add_stat('thetaW')
+cs.add_stat('Pi')
+cs.add_stat('D')
+cs.add_stat('Hsd')
+cs.add_stat('ls')
+cs.add_stat('Dxy')
+cs.add_stat('Snn')
+cs.add_stat('WCst')
+###
+
+###
+print '### exercice 2.3.3 ###'
+stats2 = cs.process_align(aln)
+print stats2
+###
+
+###
+print '### exercice 2.3.4 ###'
+print 'ls:', stats['ls'], stats2['ls']
+print 'S:', stats['S'], stats2['S']
+print 'D:', stats['D'], stats2['D']
+print 'thetaW:', stats['thetaW'], stats2['thetaW']
+print 'thetaW/site:', stats['thetaW']/stats['ls'], stats2['thetaW']/stats2['ls']
+###
+
+####
+print '### exercice 2.4.1 ###'
+pos, mat = egglib.stats.matrix_LD(aln, 'rsq', max_maj=0.8)
+print len(pos), len(mat)
+####
+
+####
+print '### exercice 2.4.2 ###'
+x = []
+y = []
+for i,row in enumerate(mat):
+    for j,v in enumerate(row):
+        if v is not None:
+            x.append(pos[i]-pos[j])
+            y.append(v)
+####
+
+####
+print '### exercice 2.4.3 ###'
+from matplotlib import pyplot
+pyplot.plot(x, y, ls='None', marker='o', mec='k', mfc='None', ms=3)
+pyplot.xlabel('distance')
+pyplot.ylabel('r square')
+pyplot.ylim(0, 1.05)
+pyplot.savefig('figure1.png')
+pyplot.clf()
+####
+
+####
+import random
+print '### exercice 2.4.4 ###'
+aln2 = egglib.io.from_fasta('align2.fas')
+pos, mat = egglib.stats.matrix_LD(aln2, 'rsq', max_maj=0.8)
+x = []
+y = []
+for i,row in enumerate(mat):
+    for j,v in enumerate(row):
+        if v is not None:
+            x.append(pos[i]-pos[j])
+            y.append(v+random.normalvariate(0, 0.01))
+pyplot.plot(x, y, ls='None', marker='o', mec='k', mfc='None', ms=3)
+pyplot.xlabel('distance')
+pyplot.ylabel('r square')
+pyplot.ylim(0, 1.05)
+pyplot.savefig('figure2.png')
+pyplot.clf()
+####
+
+###
+print '### exercice 2.5.1 ###'
+rf = egglib.tools.ReadingFrame([(0, 441), (1419, 4014), (5258, 5960), (6605, 8942)])
+###
+
+###
+print '### exercice 2.5.2 ###'
+cd = egglib.stats.CodingDiversity(aln, frame=rf, max_missing=int(0.5*aln.ns))
+###
+
+###
+print '### exercice 2.5.3 ###'
+print 'codon sites:', cd.num_codons_eff
+print 'sites syn:', cd.num_sites_S
+print 'sites non-syn:', cd.num_sites_NS
+print 'S syn:', cd.num_pol_S
+print 'S non-syn:', cd.num_pol_NS
+###
+
+###
+print '### exercice 2.5.4 ###'
+align_S = cd.mk_align_S()
+align_NS = cd.mk_align_NS()
+print 'align S:', align_S.ns, align_S.ls
+print 'align NS:', align_NS.ns, align_NS.ls
+###
+
+###
+print '### exercice 2.5.5 ###'
+codon_filter = egglib.stats.Filter(rng=(0, 63), missing=64)
+###
+
+###
+print '### exercice 2.5.6 ###'
+cs = egglib.stats.ComputeStats()
+cs.configure(filtr=codon_filter, max_missing_freq=0.5)
+cs.add_stat('nseff')
+cs.add_stat('ls')
+cs.add_stat('S')
+cs.add_stat('D')
+cs.add_stat('thetaW')
+cs.add_stat('Pi')
+###
+
+###
+print '### exercice 2.5.7 ###'
+statsS = cs.process_align(align_S)
+statsNS = cs.process_align(align_NS)
+print 'synonymous stats:'
+print statsS
+print 'non-synonymous stats:'
+print statsNS
+###
+
+###
+print '### exercice 2.5.8 ###'
+print 'Pi[S]/site:', statsS['Pi']/cd.num_sites_S
+print 'thetaW[S]/site:', statsS['thetaW']/cd.num_sites_S
+print 'Pi[NS]/site:', statsNS['Pi']/cd.num_sites_NS
+print 'thetaW[NS]/site:', statsNS['thetaW']/cd.num_sites_NS
+###
+```
