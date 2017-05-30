@@ -129,7 +129,7 @@ print(record)
 
 Bio.Phylo is described in an open-access journal article [Talevich et al., 2012], which you might also find helpful.
 
-Data: https://raw.githubusercontent.com/biopython/biopython/master/Doc/examples/simple.dnd
+Data: https://raw.githubusercontent.com/biopython/biopython/master/Doc/examples/simple.dnd (use wget to download into your working directory)
 
 ```python
 from Bio import Phylo

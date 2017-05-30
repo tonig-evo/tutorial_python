@@ -32,7 +32,7 @@ dev.off()
 os.system('Rscript script.R') # this can also contain variables
 ```
 
-## Rpy2
+## Option 2: Use R within python using Rpy2
 Rpy2 is a module that allows to include functions of R (a mathematical/statistical programming language) into python. You can use it to draw complex graphics and use mathematical functions that are not included in python, numpy or scipy.
 Let's use Rpy2! (from rpy import *), now you can call any R command by either:
 
@@ -102,7 +102,7 @@ Look at http://www.harding.edu/fmccown/r/ , you will find simple plots and the c
     4. Pie Chart (add a title) 
     5. Dotchart (use percentage as labels)
 
-## Use seaplot to plot
+## Using seaplot to plot fancy graphs
 
 Seaborn provides a high-level interface to Matplotlib (a plotting environment for Python), a powerful but sometimes unwieldy Python visualization library.
 
@@ -129,21 +129,33 @@ df.head()
 ### Scatterplots
 ```python
 # Recommended way
-sns.lmplot(x='Attack', y='Defense', data=df)
+pl1=sns.lmplot(x='Attack', y='Defense', data=df)
+
+fig = pl1.get_figure()
+fig.savefig("scatterplot1.pdf")
+fig.clf()
+
 # More fancy
 # Scatterplot arguments
-sns.lmplot(x='Attack', y='Defense', data=df,
+pl2=sns.lmplot(x='Attack', y='Defense', data=df,
            fit_reg=False, # No regression line
            hue='Stage')   # Color by evolution stage
+fig = pl2.get_figure()
+fig.savefig("scatterplot2.pdf")
+fig.clf()
 # Some tweaks
 # Plot using Seaborn
-sns.lmplot(x='Attack', y='Defense', data=df,
+pl3=sns.lmplot(x='Attack', y='Defense', data=df,
            fit_reg=False,
            hue='Stage')
  
 # Tweak using Matplotlib
 plt.ylim(0, None)
 plt.xlim(0, None)
+
+fig = pl3.get_figure()
+fig.savefig("scatterplot3.pdf")
+fig.clf()
 ```
 
 ### Boxplots
@@ -233,7 +245,7 @@ sns.countplot(x='Type 1', data=df, palette=pkmn_type_colors)
 plt.xticks(rotation=-45)
 ```
 
-### Factor plot, denisty plot, joint distribution plot
+### Factor plot, density plot, joint distribution plot
 
 ```python
 # Factor Plot

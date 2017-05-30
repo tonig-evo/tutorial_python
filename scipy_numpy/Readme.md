@@ -67,7 +67,7 @@ For a quick view on a large dataframe, use its describe method: pandas.DataFrame
 - Hint use ‘tab completion’ to find out the methods that can be called, instead of ‘mean’ in the above example.
 - What is the average value of MRI counts expressed in log units, for males and females?
 
-### Hypothesis testing
+## Hypothesis testing
 
 There are numerous statistics and statisctical tests implemented in Scipy. Take a look at https://docs.scipy.org/doc/scipy/reference/stats.html
 
@@ -94,7 +94,7 @@ stats.wilcoxon(data['FSIQ'], data['PIQ'])
 - Test the difference between weights in males and females.
 - Use non parametric statistics to test the difference between VIQ in males and females.
 
-### Statsmodels
+## Statsmodels
 
 http://www.statsmodels.org/stable/example_formulas.html
 

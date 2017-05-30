@@ -1,6 +1,6 @@
 # Python tutorial
 
-This tutorial is aimed to get familiar with the programming language Python. 
+This tutorial is aimed to get familiar with the programming language Python. The course starts with a general introduction to Python ("first steps", 1-5) and will then later show the potential of Python for solving problems frequently occurring in biological research (6-9).
 
 ## 0. Setup
 
@@ -25,7 +25,9 @@ Once this is done you can return to "Iceberg Applications" menu and click on "ge
 
 ## 1. Python fundamentals
 
-The file [learnpython.py](learnpython.py) contains five sections introducing basic principles of the programming language. For each section there are a number of questions, please answer the questions of each section in a separate script. As a little guide to start, please read the instructions for code annotations [How_to_document_code.pdf](How_to_document_code.pdf). 
+**PDF Slides:** [Presentation](python_pres.py)
+
+PDF slides are based on the file [learnpython.py](learnpython.py) that contains five sections introducing basic principles of the programming language. For each section there are a number of questions, please answer the questions of each section in a separate script. As a little guide to start, please read the instructions for code annotations [How_to_document_code.pdf](How_to_document_code.pdf). For more information on how to learn a programming language take a look at https://learnxinyminutes.com/docs/python/
 
 ## 1a. Primitive Datatypes and Operators
 
