@@ -25,6 +25,8 @@ Once this is done you can return to "Iceberg Applications" menu and click on "ge
 
 ## 1. Python fundamentals
 
+**PDF Slides:** [Presentation](python_pres.py)
+
 The file [learnpython.py](learnpython.py) contains five sections introducing basic principles of the programming language. For each section there are a number of questions, please answer the questions of each section in a separate script. As a little guide to start, please read the instructions for code annotations [How_to_document_code.pdf](How_to_document_code.pdf). 
 
 ## 1a. Primitive Datatypes and Operators
