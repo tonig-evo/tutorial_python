@@ -75,7 +75,7 @@ vcf_file = open('gt_chrLGE22.vcf', 'r')
 for line in vcf_file:
     if line.startswith('#'):
         continue
-    split_line = line.rstrip('\n').split('\t')
+    split_line = line.rstrip().split('\t')
 ```
 
 If we add a ```print``` statement to our code we can better understand how python is processing our file:
@@ -85,7 +85,7 @@ vcf_file = open('gt_chrLGE22.vcf', 'r')
 for line in vcf_file:
     if line.startswith('#'):
         continue
-    split_line = line.rstrip('\n').split('\t')
+    split_line = line.rstrip().split('\t')
     print(split_line)
 ```
 
