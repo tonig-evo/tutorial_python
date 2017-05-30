@@ -1,5 +1,10 @@
+import sys
+
+vcf_in = sys.argv[1]  # sys.argv in the sys module allows you to have commandline options in your script
+csv_out = sys.argv[2]  # in the this example: python get_length_freqs.py <vcf_in> <csv_out>
+
 length_dict = {}
-for line in open('dmel_17flys_chr4_indels_over10bp.vcf'):
+for line in open(vcf_in):
     if not line.startswith('#'):
         split_line = line.rstrip('\n').split('\t')
         ref_allele = split_line[3]
@@ -10,5 +15,6 @@ for line in open('dmel_17flys_chr4_indels_over10bp.vcf'):
         else:
             length_dict[indel_length] += 1
 
-for x in sorted(length_dict.keys()):
-    print ','.join([str(x), str(length_dict[x])])
+with open(csv_out, 'w') as out:
+    for x in sorted(length_dict.keys()):
+        out.write(','.join([str(x), str(length_dict[x])]) + '\n')
