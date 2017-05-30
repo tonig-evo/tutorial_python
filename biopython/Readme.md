@@ -32,7 +32,7 @@ The names of the alignment functions in this module follow the convention <align
 
 Data are two single entry fasta files containing 2 human hemoglobin sequences: (alpha.faa) and (beta.faa)
 
-```
+```python
 from Bio import pairwise2
 from Bio import SeqIO
 seq1 = SeqIO.read("alpha.faa", "fasta")
@@ -51,7 +51,7 @@ print(alignments[0])
 - Conduct a local alignment with no gap open penalty
 - What are the alignment parameters for the follwoing code?
 
-```
+```python
 from Bio import pairwise2
 from Bio import SeqIO
 from Bio.SubsMat.MatrixInfo import blosum62
@@ -66,7 +66,7 @@ print(pairwise2.format_alignment(*alignments[0]))
 
 Data: https://raw.githubusercontent.com/biopython/biopython/master/Doc/examples/opuntia.fasta
 
-```
+```python
 from Bio import SeqIO
 opuntia_dict = SeqIO.index("opuntia.fasta", "fasta")
 for x in opuntia_dict:
@@ -82,7 +82,7 @@ for x in opuntia_dict:
 
 ## Finding the taxonomy
 
-```
+```python
 from Bio import Entrez
 Entrez.email = "A.N.Other@example.com"     # Your Email
 handle = Entrez.esearch(db="Taxonomy", term="Cypripedioideae") # species of interest
@@ -115,7 +115,7 @@ records[0]["Lineage"]
 
 ## Fetching sequences from NCBI via Entrez
 
-```
+```python
 from Bio import Entrez, SeqIO
 handle = Entrez.efetch(db="nucleotide", id="EU490707", rettype="gb", retmode="text")
 record = SeqIO.read(handle, "genbank")
@@ -131,7 +131,7 @@ Bio.Phylo is described in an open-access journal article [Talevich et al., 2012]
 
 Data: https://raw.githubusercontent.com/biopython/biopython/master/Doc/examples/simple.dnd
 
-```
+```python
 from Bio import Phylo
 tree = Phylo.read("simple.dnd", "newick")
 
@@ -145,7 +145,7 @@ Phylo.draw(tree)
 ```
 Modify the tree output
 
-```
+```python
 # In Biopython 1.55 and later, this is a convenient tree method:
 tree = tree.as_phyloxml()
 tree.root.color = "gray"
