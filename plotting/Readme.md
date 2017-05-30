@@ -233,7 +233,7 @@ sns.countplot(x='Type 1', data=df, palette=pkmn_type_colors)
 plt.xticks(rotation=-45)
 ```
 
-### Factor plot, denisty plot, joint distribution plot
+### Factor plot, density plot, joint distribution plot
 
 ```python
 # Factor Plot
