@@ -129,21 +129,33 @@ df.head()
 ### Scatterplots
 ```python
 # Recommended way
-sns.lmplot(x='Attack', y='Defense', data=df)
+pl1=sns.lmplot(x='Attack', y='Defense', data=df)
+
+fig = pl1.get_figure()
+fig.savefig("scatterplot1.pdf")
+fig.clf()
+
 # More fancy
 # Scatterplot arguments
-sns.lmplot(x='Attack', y='Defense', data=df,
+pl2=sns.lmplot(x='Attack', y='Defense', data=df,
            fit_reg=False, # No regression line
            hue='Stage')   # Color by evolution stage
+fig = pl2.get_figure()
+fig.savefig("scatterplot2.pdf")
+fig.clf()
 # Some tweaks
 # Plot using Seaborn
-sns.lmplot(x='Attack', y='Defense', data=df,
+pl3=sns.lmplot(x='Attack', y='Defense', data=df,
            fit_reg=False,
            hue='Stage')
  
 # Tweak using Matplotlib
 plt.ylim(0, None)
 plt.xlim(0, None)
+
+fig = pl3.get_figure()
+fig.savefig("scatterplot3.pdf")
+fig.clf()
 ```
 
 ### Boxplots
