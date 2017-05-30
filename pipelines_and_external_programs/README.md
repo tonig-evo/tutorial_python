@@ -103,10 +103,9 @@ Use a for loop to run the above pipeline with each of the following files in tur
 
 <details>
 <summary>Hint</summary>
-# this is iterable 
-bed_files = ['dmel_2R_cds.bed', 'dmel_2R_intron.bed', 'dmel_2R_utr.bed']
+bed_files = ['dmel_2R_cds.bed', 'dmel_2R_intron.bed', 'dmel_2R_utr.bed'] # this is iterable 
 </details>
 
+A potential solution can be found here: [task1.py](task1.py).
  
- 
-[Return home](https://github.com/tonig-evo/tutorial_python)
+[Return home](https://github.com/tonig-evo/tutorial_python).
