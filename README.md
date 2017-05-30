@@ -16,7 +16,7 @@ cd tutorial_python
 You will then need to load a python environment setup for this course: 
 
 ```
-sh load_modules.sh
+source load_modules.sh
 conda env create -f aps_course.yml
 source activate aps_course
 ```
