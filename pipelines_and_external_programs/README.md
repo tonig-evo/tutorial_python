@@ -1,57 +1,97 @@
 # Creating simple pipelines of external programs
 
-This section of the course aims to give a simple overview of calling an external program within a python script and grabbing output from a program and storing it, using the ```subprocess``` module.
+This section of the course aims to give a simple overview of calling an external program within a python script and grabbing output from a program and storing it, 
+using the ```subprocess``` module.
  
-A common use of python when working with big data and complex work flows is to provide a level of automation. Whether that is to run the same process on multiple files without manually running it on each one, or enabling your multi-program pipeline to pass output files from one program to the input of another with running them one by one yourself.
+A common use of python when working with big data and complex work flows is to provide a level of automation. Whether that is to run the same process on 
+multiple files without manually running it on each one, or enabling your multi-program pipeline to pass output files from one program to the input of another 
+with running them one by one yourself.
  
-There example I will use here will be based on my work on INDELs (again) but the principles are applicable for any pipeline.
- 
-So first of in our example we want to run the a modified version of the script we just wrote ```extract_indels_over_10bp.py```, which has only had the file paths changed. Firstly off we need to know the programs commandline and have that as a string. Normally, as this is a Python script, we would just import it. But for the sake of demonstration, we will call the script like we would call any script.
+The example I will use here will be based on my work on INDELs (again) but the principles are applicable for any pipeline.
+
+The task in this tutorial is to extract all INDELs falling within genes on _D. mel_ chromosome 4 and produce a plot of their lengths.
+
+So first off in our example we want to extract INDELs in genes. To do this we are going to use the program called 'Bedtools'. We will give it our VCF file and a 
+BED file of coding sequence coordinates and tell the program to output all INDELs that overlap with coding sequence. The command for this is as follows: 
+```bedtools intersect -header -a {our_vcf_file} -b {our_bed_file} > {our_output_file}```
 
 ```python
-script_cmd = 'python extract_indels_over_10bp.py'
+# file locations
+vcf_file = 'dmel_17flys_chr2R_indels.vcf' 
+bed_file = 'dmel_2R_cds.bed'
+our_output_vcf = 'dmel_17flys_chr2R_coding_indels.vcf'
+
+# bedtools intersect
+bedtools_cmd = 'bedtools intersect -header -a ' + vcf_file + ' -b ' + bed_file + ' > ' + our_output_vcf
 ```
 
-We can then call this command from out script using the subprocess module, but we also need to make sure we put an import statement at the top of our script.
+Now that we have defined all files we need and assigned the command string to a variable we can then call bedtools from our script using the subprocess module, 
+but we also need to make sure we import it at the top of our script.
  
 ```python
 import subprocess
 
-script_cmd = 'python extract_indels_over_10bp.py'
-subprocess.call(script_cmd, shell=True)
-```
-Our script will now call that program and wait for it to finish. Once the script has run we can see that a bed file has been created in the current directory.
+# file locations
+vcf_file = 'dmel_17flys_chr2R_indels.vcf' 
+bed_file = 'dmel_2R_cds.bed'
+our_output_vcf = 'dmel_17flys_chr2R_coding_indels.vcf'
 
-Next off we are going to run a program we haven't written ourselves, bedtools. We are going to use bedtools to take the overlap between our vcf file and out bed file and output a new vcf file with the overlapping variants. The command line for this is: ```bedtools intersect -header -a {our_vcf_file} -b {our_bed_file} > {our_output_file}```.
+# bedtools intersect
+bedtools_cmd = 'bedtools intersect -header -a ' + vcf_file + ' -b ' + bed_file + ' > ' + our_output_vcf
+subprocess.call(bedtools_cmd, shell=True)
+```
+
+Our script will now call the program and wait for it to finish. Once the script has run we can see that a new vcf file has been created in the current directory.
+
+So now we have a subset vcf file with INDELs in coding regions. The next step of our task is to plot the length distribution. However we first need to get the data 
+into a more plotable format than VCF!
+For this task the script ```get_length_freqs.py``` is provided (you can take a look at it [here](get_length_freqs.py)), this script outputs a csv file with two columns,
+length and number of INDELs. The command we will use for this is ```python get_length_freqs.py {input_vcf} {output_csv}```. So if we add this to our code:
 
 ```python
 import subprocess
 
 # file locations
-vcf_file = 'dmel_17flys_chr4_indels.vcf' 
-bed_file = 'dmel_indels_over_10bp.bed'
+vcf_file = 'dmel_17flys_chr2R_indels.vcf' 
+bed_file = 'dmel_2R_cds.bed'
+our_output_vcf = 'dmel_17flys_chr2R_coding_indels.vcf'
+length_csv = 'dmel_indel_lengths.csv'
 
-# extract indel positions
-script_cmd = 'python extract_indels_over_10bp.py'
-subprocess.call(script_cmd, shell=True)
-
-# perform a bedtools intersect
-our_output_vcf = 'dmel_17flys_chr4_indels_over10bp.vcf'
+# bedtools intersect
 bedtools_cmd = 'bedtools intersect -header -a ' + vcf_file + ' -b ' + bed_file + ' > ' + our_output_vcf
 subprocess.call(bedtools_cmd, shell=True)
+
+# length csv creation
+script_cmd = 'python get_length_freqs.py ' + our_output_vcf + ' ' + length_csv
+subprocess.call(script_cmd, shell=True)
 ```
 
-So now we have a subset vcf file with INDELs over 10bp. Say we want to plot the distribution of INDEL lengths using ggplot. First we probably want to get the data into a convenient format for plotting, particularly as reading in large data files in R can be a bit of faff. For this there is the simple script ```get_length_freqs.py``` which outputs in a csv format with two columns, length and number of INDELs. So the command we will use for this is ```python get_length_freqs.py > dmel_indel_lengths.csv```. We can the read this summarised data into R and plot a it with ggplot such as with the following script:
+Now we have our data in good shape to plot the distribution of INDEL lengths using ggplot. The provided script ```plot_indel_lengths.R``` 
+(view it [here](plot_indel_lengths.R)), will plot our data and create a ```.png``` plot in the current directory, it can be run as follows: 
+```Rscript plot_indel_lengths.R {in_csv} {plot.png}```. So we can add this step to our pipeline.
 
-```R
-library(ggplot2)
+```python
+import subprocess
 
-length_data <- read.csv('dmel_indel_lengths.csv', header=FALSE)
+# file locations
+vcf_file = 'dmel_17flys_chr2R_indels.vcf' 
+bed_file = 'dmel_2R_cds.bed'
+our_output_vcf = 'dmel_17flys_chr2R_coding_indels.vcf'
+length_csv = 'dmel_indel_lengths.csv'
+plot_file = 'dmel_indel_length_plot.png'
 
-ggplot(length_data, aes(x=V1, y=V2))+
-    geom_bar(stat='identity', position='dodge', fill='steel blue') +
-    xlab('Indel Length (bp)') + ylab('Number of INDELs') +
-    theme_bw()
-    
-ggsave('indel_length_plot.png', height=6, width=9)
+# bedtools intersect
+bedtools_cmd = 'bedtools intersect -header -a ' + vcf_file + ' -b ' + bed_file + ' > ' + our_output_vcf
+subprocess.call(bedtools_cmd, shell=True)
+
+# length csv creation
+script_cmd = 'python get_length_freqs.py ' + our_output_vcf + ' ' + length_csv
+subprocess.call(script_cmd, shell=True)
+
+# plot
+plot_cmd = 'Rscript plot_indel_lengths.R ' + length_csv + ' ' + plot_file
+subprocess.call(plot_cmd, shell=True)
 ```
+
+We now have a complete pipeline script that takes a VCF file and pulls out coding INDELs and plots their lengths,
+which we can run in one go rather in three separate steps.
