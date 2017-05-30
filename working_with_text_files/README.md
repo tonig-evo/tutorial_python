@@ -286,8 +286,8 @@ vcf_file.close()
 
 The allele frequency of each variant is listed in the 8th column of the VCF file in the format ```AF=0.5``` 
 (see the extract from the file at the top this page for an example). Use this information to write a comma 
-separated file (csv) with three columns: chromosome, position and allele frequency. You will need to extract 
-the allele frequency making use of ```.split()```.
+separated file (csv) with three columns: chromosome, position and allele frequency. Output data only for sites
+that are a multiple of three in length. You will need to extract the allele frequency making use of ```.split()```.
 
 <details>
 <summary>Hint 1</summary>
