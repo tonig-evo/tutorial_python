@@ -26,7 +26,7 @@ Have a look at [Numpy_Tutorial.pdf](../Numpy_Tutorial.pdf) to familiarise yourse
 
 ### Create data frames from lists
 
-```
+```python
 import numpy as np
 t = np.linspace(-6, 6, 20)
 sin_t = np.sin(t)
@@ -37,7 +37,7 @@ pandas.DataFrame({'t': t, 'sin': sin_t, 'cos': cos_t})
 
 Data: http://www.scipy-lectures.org/_downloads/brain_size.csv
 
-```
+```python
 import pandas
 data = pandas.read_csv('examples/brain_size.csv', sep=';', na_values=".")
 data  
@@ -45,7 +45,7 @@ data
 
 ### Manipulating data
 
-```
+```python
 data.shape    # 40 rows and 8 columns
 data.columns # It has columns
 print(data['Gender'])
@@ -71,7 +71,7 @@ For a quick view on a large dataframe, use its describe method: pandas.DataFrame
 
 There are numerous statistics and statisctical tests implemented in Scipy. Take a look at https://docs.scipy.org/doc/scipy/reference/stats.html
 
-```
+```python
 from scipy import stats
 
 # 1-sample t-test: testing the value of a population mean
@@ -99,7 +99,7 @@ stats.wilcoxon(data['FSIQ'], data['PIQ'])
 http://www.statsmodels.org/stable/example_formulas.html
 
 Create an example data
-```
+```python
 import numpy as np
 x = np.linspace(-5, 5, 20)
 np.random.seed(1)
@@ -112,7 +112,7 @@ data = pandas.DataFrame({'x': x, 'y': y})
 
 Run the statistical model
 
-```
+```python
 from statsmodels.formula.api import ols
 model = ols("y ~ x", data).fit()
 print(model.summary()) 
@@ -122,7 +122,7 @@ print(model.summary())
 
 - Retrieve the estimated parameters from the model above.
 - What does following statistical model test and what is the outcome?
-```
+```python
 data = pandas.read_csv('examples/brain_size.csv', sep=';', na_values=".")
 model = ols("VIQ ~ Gender + 1", data).fit()
 print(model.summary())
