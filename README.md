@@ -1,6 +1,6 @@
 # Python tutorial
 
-This tutorial is aimed to get familiar with the programming language Python. 
+This tutorial is aimed to get familiar with the programming language Python. The course starts with a general introduction to Python ("first steps", 1-5) and will then later show the potential of Python for solving problems frequently occurring in biological research (6-9).
 
 ## 0. Setup
 
