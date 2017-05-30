@@ -3,7 +3,7 @@
 ## Statistical software package R has sophisticated plotting functions
 
 You can R code very simply.Familiarise yourself with R (just type 'R' in a shell). R includes a number of datasets that it is convenient to use for examples:
-```
+```R
 # load prepared data trees
 data(trees)
 # First five columns of dataset tree including labels
@@ -28,7 +28,7 @@ dev.off()
 
 ## Option 1: Call an rscript within python
 
-```
+```python
 os.system('Rscript script.R') # this can also contain variables
 ```
 
@@ -36,7 +36,7 @@ os.system('Rscript script.R') # this can also contain variables
 Rpy2 is a module that allows to include functions of R (a mathematical/statistical programming language) into python. You can use it to draw complex graphics and use mathematical functions that are not included in python, numpy or scipy.
 Let's use Rpy2! (from rpy import *), now you can call any R command by either:
 
-```
+```python
 # Import Rpy2
 import rpy2
 print(rpy2.__version__)
@@ -51,7 +51,7 @@ utils = importr('utils')
 ```
 **Note** R object names can contain a ”.” (dot) while in Python the dot means “attribute in a namespace”. Because of this, importr is trying to translate ”.” into “_”. 
 
-```
+```python
 import rpy2.robjects as robjects
 
 r = robjects.r
@@ -73,7 +73,7 @@ r.assign('variable_inR',variable_in_python)
 
 ## Example plot with Rpy2
 
-```
+```python
 import math, datetime
 import rpy2.robjects.lib.ggplot2 as ggplot2
 import rpy2.robjects as ro
@@ -109,7 +109,7 @@ Seaborn provides a high-level interface to Matplotlib (a plotting environment fo
 ### Loading necessary libraries
 
 Preparation: Import the libraries with an alias. Later, you can invoke Pandas with pd, Matplotlib with plt, and Seaborn with sns
-```
+```python
 # Pandas for managing datasets
 import pandas as pd
 # Matplotlib for additional customization
@@ -120,14 +120,14 @@ import seaborn as sns
 ```
 
 ### Read dataset
-```
+```python
 df = pd.read_csv('Pokemon.csv', index_col=0)
 # Display first 5 observations
 df.head()
 ```
 
 ### Scatterplots
-```
+```python
 # Recommended way
 sns.lmplot(x='Attack', y='Defense', data=df)
 # More fancy
@@ -148,7 +148,7 @@ plt.xlim(0, None)
 
 ### Boxplots
 
-```
+```python
 # Boxplot
 sns.boxplot(data=df)
 
@@ -161,7 +161,7 @@ sns.boxplot(data=stats_df)
 
 ### Themes, Violin plots and swarm plots
 
-```
+```python
 # Set theme
 sns.set_style('whitegrid')
  
@@ -194,7 +194,7 @@ sns.swarmplot(x='Type 1', y='Attack', data=df,
 
 ### Overlay plots
 
-```
+```python
 # Set figure size with matplotlib
 plt.figure(figsize=(10,6))
  
@@ -217,7 +217,7 @@ plt.title('Attack by Type')
 
 ### Heatmap of correlations, histograms, bar plots
 
-```
+```python
 # Calculate correlations
 corr = stats_df.corr()
  
@@ -235,7 +235,7 @@ plt.xticks(rotation=-45)
 
 ### Factor plot, denisty plot, joint distribution plot
 
-```
+```python
 # Factor Plot
 g = sns.factorplot(x='Type 1',
                    y='Attack',
