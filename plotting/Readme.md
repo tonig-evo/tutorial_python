@@ -32,7 +32,7 @@ dev.off()
 os.system('Rscript script.R') # this can also contain variables
 ```
 
-## Rpy2
+## Option 2: Use R within python using Rpy2
 Rpy2 is a module that allows to include functions of R (a mathematical/statistical programming language) into python. You can use it to draw complex graphics and use mathematical functions that are not included in python, numpy or scipy.
 Let's use Rpy2! (from rpy import *), now you can call any R command by either:
 
