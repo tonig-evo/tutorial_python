@@ -16,12 +16,10 @@ cd tutorial_python
 You will then need to load a python environment setup for this course: 
 
 ```
-module load apps/python/conda
+sh load_modules.sh
 conda env create -f aps_course.yml
 source activate aps_course
 ```
-
-todo still needs modules adding
 
 Once this is done you can return to "Iceberg Applications" menu and click on "gedit" which will open the text editor that you will use to write your scripts.
 
@@ -98,20 +96,18 @@ The file [learnpython.py](learnpython.py) contains five sections introducing bas
 
 ## 4. Parsing and manipulating a text file
 
-todo add some intro 
+A common use for python is to process text files, for example whole genome data, extract information, and output 
+it in some other form, whether that be a an readily plotable ```.csv``` file or the required file format for the
+input of some other program.
 
-Follow the link below for this step of the workshop:
-
-[working with text files](working_with_text_files/README.md)
+This tutorial aims to provide a basic introduction to parsing and manipulating text files. Click 
+[here](working_with_text_files/README.md) to start this step of the workshop.
 
 ## 5. Pipelines and external programs
 
-todo add some intro
-
-Follow the link below for this step of the workshop:
-
-[Pipelines and external programs](pipelines_and_external_programs/README.md)
-
+Another frequent use of python is to provide a level of automation for workflows of multiple programs and scripts.
+This tutorial aims to provide a brief example of how you might constract such a pipeline script. It can be 
+accessed [here](pipelines_and_external_programs/README.md).
 
 # OPTIONAL TUTORIALS
 
