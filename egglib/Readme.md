@@ -15,7 +15,7 @@ http://mycor.nancy.inra.fr/egglib/
 
 ### Importing egglib
 
-```
+```python
 import egglib
 print egglib.version
 ```
@@ -26,7 +26,7 @@ Egglib supports different file formats, most importantly the fasta format. Detai
 
 The file [codon.aln](codon.aln) contains codon alignments for a gene transcript from Drosophila melanogaster from 28 different Drosophila individuals. Copy the file in your current working directory and try to get basic statistics:
 
-```
+```python
 import egglib
 aln = egglib.io.from_fasta('codon.aln')
 print aln.ns, aln.ls
@@ -50,7 +50,7 @@ AGCAGGGGAAC
 ```
 
 Information based on this labelling can be accessed as follows:
-```
+```python
 aln = egglib.io.from_fasta("align1.fas",groups=True)
 for sam in aln:
   #sam  SampleView
@@ -67,7 +67,7 @@ for sam in aln:
 
 ### Population genetic parameters
 
-```
+```python
 aln1 = egglib.io.from_fasta('codon.aln', cls=egglib.Align, groups=True)
 cs = egglib.stats.ComputeStats()
 
@@ -96,7 +96,7 @@ http://mycor.nancy.inra.fr/egglib/manual/coal.html
 Following excercises are based on a workshop that can be found here: http://mycor.nancy.inra.fr/egglib/training.html
 
 ## Excercise 1: Handling sequences
-```
+```python
 import egglib
 
 ###
@@ -332,7 +332,7 @@ print 'test for stop codons in alignment:', egglib.tools.has_stop(aln, frame=rf)
 ###
 ```
 ## Excercise 2: Population genetics
-```
+```python
 import egglib
 
 ###
