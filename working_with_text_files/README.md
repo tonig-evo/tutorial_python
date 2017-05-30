@@ -282,3 +282,18 @@ for line in vcf_file:
 output_bed.close()
 vcf_file.close()
 ```
+## Question 1
+
+The allele frequency of each variant is listed in the 8th column of the VCF file in the format ```AF=0.5``` 
+(see the extract from the file at the top this page for an example). Use this information to write a comma 
+separated file (csv) with three columns: chromosome, position and allele frequency. You will need to extract 
+the allele frequency making use of ```.split()```.
+
+<details>
+<summary>Hint 1</summary>
+Think of the 8th column of the VCF as lots of ';' separated columns.
+</details>
+
+A potential solution can be found here: [question1.py](question1.py).
+ 
+[Return home](https://github.com/tonig-evo/tutorial_python).
