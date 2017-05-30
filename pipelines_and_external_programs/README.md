@@ -95,3 +95,16 @@ subprocess.call(plot_cmd, shell=True)
 
 We now have a complete pipeline script that takes a VCF file and pulls out coding INDELs and plots their lengths,
 which we can run in one go rather in three separate steps.
+
+## Task 1
+
+Use a for loop to run the above pipeline with each of the following files in turn: 
+```dmel_2R_cds.bed```, ```dmel_2R_intron.bed``` and ```dmel_2R_intergenic.bed```
+
+<details>
+<summary>Hint</summary>
+bed_files = ['dmel_2R_cds.bed', 'dmel_2R_intron.bed', 'dmel_2R_intergenic.bed']
+</details>
+
+
+[Return home](https://github.com/tonig-evo/tutorial_python)
