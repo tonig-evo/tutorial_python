@@ -133,18 +133,17 @@ df.head()
 # Recommended way
 pl1=sns.lmplot(x='Attack', y='Defense', data=df)
 
-fig = pl1.get_figure()
-fig.savefig("scatterplot1.pdf")
-fig.clf()
+
+pl1.savefig("scatterplot1.pdf")
+pl1.clf()
 
 # More fancy
 # Scatterplot arguments
 pl2=sns.lmplot(x='Attack', y='Defense', data=df,
            fit_reg=False, # No regression line
            hue='Stage')   # Color by evolution stage
-fig = pl2.get_figure()
-fig.savefig("scatterplot2.pdf")
-fig.clf()
+pl2.savefig("scatterplot2.pdf")
+pl2.clf()
 # Some tweaks
 # Plot using Seaborn
 pl3=sns.lmplot(x='Attack', y='Defense', data=df,
