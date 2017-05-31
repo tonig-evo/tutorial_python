@@ -120,6 +120,8 @@ import seaborn as sns
 ```
 
 ### Read dataset
+Dataset: https://elitedatascience.com/wp-content/uploads/2017/04/Pokemon.csv
+
 ```python
 df = pd.read_csv('Pokemon.csv', index_col=0)
 # Display first 5 observations
