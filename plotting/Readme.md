@@ -114,7 +114,7 @@ Preparation: Import the libraries with an alias. Later, you can invoke Pandas wi
 import pandas as pd
 # Matplotlib for additional customization
 from matplotlib import pyplot as plt
-%matplotlib inline
+#matplotlib inline
 # Seaborn for plotting and styling
 import seaborn as sns
 ```
@@ -132,7 +132,6 @@ df.head()
 ```python
 # Recommended way
 pl1=sns.lmplot(x='Attack', y='Defense', data=df)
-
 
 pl1.savefig("scatterplot1.pdf")
 pl1.clf()
