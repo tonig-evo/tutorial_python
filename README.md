@@ -82,7 +82,7 @@ PDF slides are based on the file [learnpython.py](learnpython.py) that contains 
 
 - How to use the ”for … in” loop to extract every other letter of a string
 - Use the “if ... elif … else” function to check if a variable contains letters, numerics or both
-- Use the “for … in” loop to calculate faculty
+- Use the “for … in” loop to calculate factorial
 - Use a suitable loop to check if a number is a prime number (https://en.wikipedia.org/wiki/Prime_number)
 - Assume a string of coding DNA, extract for each letter the codon position (1st,2nd and 3rd) using a loop and the if command
 
